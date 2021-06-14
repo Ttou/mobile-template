@@ -1,0 +1,74 @@
+{
+  "name": "mobile-template",
+  "author": "WangRuiJin <1361572192@qq.com>",
+  "repository": "git@gitee.com:jh_shot/mobile-template.git",
+  "license": "MulanPSL2",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "prepare": "husky install",
+    "commit": "git add . && git cz",
+    "format": "prettier \"src/**/*.{ts,tsx}\" --write",
+    "lint:eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint:stylelint": "stylelint \"src/**/*.{css,less}\" --fix"
+  },
+  "dependencies": {
+    "@vueuse/core": "5.0.1",
+    "lodash-es": "4.17.21",
+    "vant": "3.0.18",
+    "vue": "3.1.1",
+    "vue-router": "4.0.8",
+    "vuex": "4.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@ttou/postcss-px-to-viewport": "^1.1.4",
+    "@types/lodash-es": "^4.17.4",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "@vitejs/plugin-legacy": "^1.4.1",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
+    "@vue/compiler-sfc": "^3.1.1",
+    "@vue/eslint-config-standard": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^6.0.0",
+    "less": "^4.1.1",
+    "lint-staged": "^11.0.0",
+    "postcss": "^8.3.0",
+    "prettier": "^2.3.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vite-plugin-compression": "^0.2.5",
+    "vite-plugin-html": "^2.0.7",
+    "vite-plugin-style-import": "^0.10.1",
+    "vite-plugin-svg-icons": "^0.7.0"
+  },
+  "browserslist": [
+    "Chrome >= 51",
+    "iOS >= 10.0"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "npm run lint:eslint",
+    "*.{css,less}": "npm run lint:stylelint"
+  }
+}
