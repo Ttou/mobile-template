@@ -17,7 +17,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueJsx(),
+    vueJsx({
+      transformOn: true
+    }),
     legacy({
       targets: browserslist
     }),
