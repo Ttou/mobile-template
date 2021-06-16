@@ -10,6 +10,21 @@ import type { TabItem } from './types'
 export default defineComponent({
   setup() {
     const activeTab = ref(0)
+
+    const route = useRoute()
+
+    const show = computed(() =>
+      [Route.index, Route.category, Route.shop, Route.cart, Route.my].includes(
+        route.path as Route
+      )
+    )
+
+    return {
+      activeTab,
+      show
+    }
+  },
+  render() {
     const tabs = [
       {
         name: '首页',
@@ -38,14 +53,6 @@ export default defineComponent({
       }
     ] as TabItem[]
 
-    const route = useRoute()
-
-    const show = computed(() =>
-      [Route.index, Route.category, Route.shop, Route.cart, Route.my].includes(
-        route.path as Route
-      )
-    )
-
     const renderItem = (tab: TabItem) => (
       <TabbarItem
         to={tab.path}
@@ -56,10 +63,10 @@ export default defineComponent({
       />
     )
 
-    return () => (
+    return (
       <Tabbar
-        v-show={show.value}
-        v-model={activeTab.value}
+        v-show={this.show}
+        v-model={this.activeTab}
         class="tabbar"
         activeColor="#F759AB"
         inactiveColor="#BFBFBF"

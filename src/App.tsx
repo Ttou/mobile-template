@@ -3,8 +3,8 @@ import { Page, Tabbar } from './components'
 
 export default defineComponent({
   name: 'App',
-  setup() {
-    return () => (
+  render() {
+    return (
       <>
         <Page />
         <Tabbar />

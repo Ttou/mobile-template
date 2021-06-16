@@ -12,17 +12,22 @@ export default defineComponent({
     }
   },
   emits: ['click'],
-  setup(props, { emit }) {
+  setup(props) {
     const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 
-    return () => (
+    return {
+      symbolId
+    }
+  },
+  render() {
+    return (
       <svg
         aria-hidden="true"
         on={{
-          click: () => emit('click')
+          click: () => this.$emit('click')
         }}
       >
-        <use xlinkHref={symbolId.value} />
+        <use xlinkHref={this.symbolId} />
       </svg>
     )
   }

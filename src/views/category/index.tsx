@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import './index.less'
 
 export default defineComponent({
-  setup() {
-    return () => <div class="category-view">分类</div>
+  render() {
+    return <div class="category-view">分类</div>
   }
 })

@@ -24,11 +24,16 @@ export default defineComponent({
       }
     )
 
-    return () => (
+    return {
+      transitionName
+    }
+  },
+  render() {
+    return (
       <RouterView
         v-slots={{
           default: ({ Component, route }) => (
-            <Transition name={transitionName.value}>
+            <Transition name={this.transitionName}>
               <Component key={route.fullPath} />
             </Transition>
           )

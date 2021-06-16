@@ -18,7 +18,8 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx({
-      transformOn: true
+      transformOn: true,
+      enableObjectSlots: false
     }),
     legacy({
       targets: browserslist
