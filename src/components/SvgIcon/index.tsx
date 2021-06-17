@@ -11,7 +11,6 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['click'],
   setup(props) {
     const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 
@@ -21,12 +20,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <svg
-        aria-hidden="true"
-        on={{
-          click: () => this.$emit('click')
-        }}
-      >
+      <svg aria-hidden="true">
         <use xlinkHref={this.symbolId} />
       </svg>
     )

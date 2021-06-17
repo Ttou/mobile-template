@@ -14,7 +14,7 @@
     "lint:stylelint": "stylelint \"src/**/*.{css,less}\" --fix"
   },
   "dependencies": {
-    "@vueuse/core": "5.0.1",
+    "@vueuse/core": "5.0.3",
     "lodash-es": "4.17.21",
     "vant": "3.0.18",
     "vue": "3.1.1",
@@ -26,8 +26,8 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@ttou/postcss-px-to-viewport": "^1.1.4",
     "@types/lodash-es": "^4.17.4",
-    "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "@typescript-eslint/parser": "^4.26.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
     "@vitejs/plugin-legacy": "^1.4.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vitejs/plugin-vue-jsx": "^1.1.5",
@@ -46,7 +46,7 @@
     "husky": "^6.0.0",
     "less": "^4.1.1",
     "lint-staged": "^11.0.0",
-    "postcss": "^8.3.0",
+    "postcss": "^8.3.5",
     "prettier": "^2.3.1",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
@@ -55,8 +55,8 @@
     "vite": "^2.3.7",
     "vite-plugin-compression": "^0.2.5",
     "vite-plugin-html": "^2.0.7",
-    "vite-plugin-style-import": "^0.10.1",
-    "vite-plugin-svg-icons": "^0.7.0"
+    "vite-plugin-style-import": "^1.0.0",
+    "vite-plugin-svg-icons": "^0.7.1"
   },
   "browserslist": [
     "Chrome >= 51",
