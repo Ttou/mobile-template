@@ -5,6 +5,7 @@ import { useStyle } from '@/hooks'
 const { TransitionName } = useStyle()
 
 export default defineComponent({
+  name: 'Page',
   setup() {
     const transitionName = ref(TransitionName.slideRight)
 

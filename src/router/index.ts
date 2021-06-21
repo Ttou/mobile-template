@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { Route } from './constants'
+import { ROUTE } from './constants'
 
-export { Route }
+export { ROUTE }
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -14,33 +14,33 @@ export default createRouter({
   },
   routes: [
     {
-      path: Route.index,
+      ...ROUTE.INDEX,
       component: () => import('@/views/index'),
       meta: { index: 1 }
     },
     {
-      path: Route.category,
+      ...ROUTE.CATEGORY,
       component: () => import('@/views/category'),
       meta: { index: 1 }
     },
     {
-      path: Route.shop,
+      ...ROUTE.SHOP,
       component: () => import('@/views/shop'),
       meta: { index: 1 }
     },
     {
-      path: Route.cart,
+      ...ROUTE.CART,
       component: () => import('@/views/cart'),
       meta: { index: 1 }
     },
     {
-      path: Route.my,
+      ...ROUTE.MY,
       component: () => import('@/views/my'),
       meta: { index: 1 }
     },
     {
       path: '/:pathMatch(.*)*',
-      redirect: { path: Route.index }
+      redirect: { path: ROUTE.INDEX.path }
     }
   ]
 })
