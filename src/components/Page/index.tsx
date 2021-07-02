@@ -33,11 +33,15 @@ export default defineComponent({
     return (
       <RouterView
         v-slots={{
-          default: ({ Component, route }) => (
-            <Transition name={this.transitionName}>
-              <Component key={route.fullPath} />
-            </Transition>
-          )
+          default: ({ Component, route }) => {
+            if (!Component) return
+
+            return (
+              <Transition name={this.transitionName}>
+                <Component key={route.fullPath} />
+              </Transition>
+            )
+          }
         }}
       />
     )
