@@ -11,9 +11,19 @@ import { browserslist } from './package.json'
 
 export default defineConfig({
   resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
-    }
+    alias: [
+      {
+        find: '@',
+        replacement: resolve(__dirname, '/src')
+      },
+      {
+        find: 'vue-types',
+        replacement:
+          process.env.NODE_ENV === 'development'
+            ? 'vue-types'
+            : 'vue-types/shim'
+      }
+    ]
   },
   plugins: [
     vue(),
