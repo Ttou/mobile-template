@@ -1,9 +1,11 @@
+import './index.less'
+
+import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { Tabbar, TabbarItem } from 'vant'
+
 import { SvgIcon } from '@/components'
 import { ROUTE } from '@/router'
-import './index.less'
 
 import type { TabItem } from './types'
 

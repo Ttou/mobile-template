@@ -1,5 +1,6 @@
 import { defineComponent, ref, Transition, watch } from 'vue'
-import { useRoute, RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
+
 import { useStyle } from '@/hooks'
 
 const { TransitionName } = useStyle()

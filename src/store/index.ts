@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
+
 import { getToken, setToken } from '@/utils/auth'
+
 import { Actions, Mutations } from './constants'
 
 export * from './types'

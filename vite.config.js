@@ -1,12 +1,13 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import legacy from '@vitejs/plugin-legacy'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
+import { injectHtml } from 'vite-plugin-html'
 import styleImport from 'vite-plugin-style-import'
 import svgIcons from 'vite-plugin-svg-icons'
-import { injectHtml } from 'vite-plugin-html'
+
 import { browserslist } from './package.json'
 
 export default defineConfig({
