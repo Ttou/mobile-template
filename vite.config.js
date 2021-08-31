@@ -15,7 +15,7 @@ export default defineConfig({
     alias: [
       {
         find: '@',
-        replacement: resolve(__dirname, '/src')
+        replacement: resolve(__dirname, 'src')
       },
       {
         find: 'vue-types',
@@ -58,7 +58,11 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    brotliSize: false
+  },
   server: {
+    host: true,
     port: 8080
   }
 })
