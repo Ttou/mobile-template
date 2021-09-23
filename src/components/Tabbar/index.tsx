@@ -1,5 +1,3 @@
-import './index.less'
-
 import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -7,6 +5,7 @@ import { useRoute } from 'vue-router'
 import { SvgIcon } from '@/components'
 import { ROUTE } from '@/router'
 
+import * as css from './index.css'
 import type { TabItem } from './types'
 
 export default defineComponent({
@@ -64,7 +63,7 @@ export default defineComponent({
       <TabbarItem
         to={tab.path}
         v-slots={{
-          icon: () => <SvgIcon class="icon" name={tab.icon} />,
+          icon: () => <SvgIcon class={css.icon} name={tab.icon} />,
           default: () => <span>{tab.name}</span>
         }}
       />
@@ -74,7 +73,7 @@ export default defineComponent({
       <Tabbar
         v-show={this.show}
         v-model={this.activeTab}
-        class="tabbar"
+        class={css.tabbar}
         activeColor="#F759AB"
         inactiveColor="#BFBFBF"
       >

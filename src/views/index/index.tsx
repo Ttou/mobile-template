@@ -1,9 +1,9 @@
-import './index.less'
-
 import { defineComponent } from 'vue'
+
+import * as css from './index.css'
 
 export default defineComponent({
   render() {
-    return <div class="index-view">首页</div>
+    return <div class={css.view}>首页</div>
   }
 })

@@ -11,14 +11,15 @@
     "commit": "git add . && git cz",
     "format": "prettier \"src/**/*.{ts,tsx}\" --write",
     "lint:eslint": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "lint:stylelint": "stylelint \"src/**/*.{css,less}\" --fix"
+    "lint:stylelint": "stylelint \"src/**/*.css\" --fix"
   },
   "dependencies": {
-    "@vueuse/core": "6.4.0",
+    "@vanilla-extract/css": "1.6.0",
+    "@vueuse/core": "6.4.1",
     "lodash-es": "4.17.21",
-    "pinia": "2.0.0-rc.8",
+    "pinia": "2.0.0-rc.9",
     "vant": "3.0.18",
-    "vue": "3.2.12",
+    "vue": "3.2.14",
     "vue-router": "4.0.11",
     "vue-types": "4.1.0"
   },
@@ -29,10 +30,11 @@
     "@types/lodash-es": "^4.17.4",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
+    "@vanilla-extract/vite-plugin": "^2.1.0",
     "@vitejs/plugin-legacy": "^1.5.3",
     "@vitejs/plugin-vue": "^1.6.2",
     "@vitejs/plugin-vue-jsx": "^1.1.8",
-    "@vue/compiler-sfc": "^3.2.12",
+    "@vue/compiler-sfc": "^3.2.14",
     "@vue/eslint-config-standard": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "commitizen": "^4.2.4",
@@ -47,7 +49,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.0",
-    "less": "^4.1.1",
     "lint-staged": "^11.1.0",
     "postcss": "^8.3.6",
     "prettier": "^2.4.0",
@@ -55,7 +56,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.4.3",
-    "vite": "^2.5.8",
+    "vite": "^2.5.10",
     "vite-plugin-compression": "^0.3.5",
     "vite-plugin-html": "^2.1.0",
     "vite-plugin-style-import": "^1.2.1",
@@ -72,6 +73,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "npm run lint:eslint",
-    "*.{css,less}": "npm run lint:stylelint"
+    "*.css": "npm run lint:stylelint"
   }
 }

@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -32,6 +33,7 @@ export default defineConfig({
       transformOn: true,
       enableObjectSlots: false
     }),
+    vanillaExtractPlugin(),
     legacy({
       targets: browserslist
     }),
