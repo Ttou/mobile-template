@@ -1,12 +1,12 @@
 import { computed, defineComponent } from 'vue'
 
-import { PropTypes } from '@/utils'
+import { propTypes } from '@/utils'
 
 export default defineComponent({
   name: 'SvgIcon',
   props: {
-    prefix: PropTypes.string.def('icon'),
-    name: PropTypes.string.isRequired
+    prefix: propTypes.string().def('icon'),
+    name: propTypes.string().isRequired
   },
   setup(props) {
     const symbolId = computed(() => `#${props.prefix}-${props.name}`)

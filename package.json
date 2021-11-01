@@ -23,7 +23,7 @@
     "vue-types": "4.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
+    "@babel/core": "^7.16.0",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@ttou/postcss-px-to-viewport": "^1.1.5",
@@ -36,7 +36,7 @@
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "@vue/compiler-sfc": "^3.2.20",
     "@vue/eslint-config-standard": "^6.1.0",
-    "@vue/eslint-config-typescript": "^8.0.0",
+    "@vue/eslint-config-typescript": "^9.0.0",
     "autoprefixer": "^10.4.0",
     "commitizen": "^4.2.4",
     "cross-env": "^7.0.3",
