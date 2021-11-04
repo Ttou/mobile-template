@@ -1,0 +1,80 @@
+diff --git a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
+index ae118d8..c772f3b 100644
+--- a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
++++ b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
+@@ -20,6 +20,7 @@ function vanillaExtractPlugin({
+   let config;
+   let packageInfo;
+   let server;
++  let useRuntime = false;
+   const cssMap = new Map();
+   let virtualExt;
+   return {
+@@ -31,7 +32,8 @@ function vanillaExtractPlugin({
+     },
+ 
+     config(_userConfig, env) {
+-      const include = env.command === 'serve' ? ['@vanilla-extract/css/injectStyles'] : [];
++      useRuntime = server && env.command === 'serve'
++      const include = useRuntime ? ['@vanilla-extract/css/injectStyles'] : [];
+       return {
+         optimizeDeps: {
+           include
+@@ -44,7 +46,7 @@ function vanillaExtractPlugin({
+ 
+     configResolved(resolvedConfig) {
+       config = resolvedConfig;
+-      virtualExt = `.vanilla.${config.command === 'serve' ? 'js' : 'css'}`;
++      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}?hash=`;
+       packageInfo = integration.getPackageInfo(config.root);
+     },
+ 
+@@ -66,7 +68,7 @@ function vanillaExtractPlugin({
+ 
+         const css = cssMap.get(fileScopeId);
+ 
+-        if (!server) {
++        if (!useRuntime) {
+           return css;
+         }
+ 
+diff --git a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
+index ae118d8..c772f3b 100644
+--- a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
++++ b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
+@@ -20,6 +20,7 @@ function vanillaExtractPlugin({
+   let config;
+   let packageInfo;
+   let server;
++  let useRuntime = false;
+   const cssMap = new Map();
+   let virtualExt;
+   return {
+@@ -31,7 +32,8 @@ function vanillaExtractPlugin({
+     },
+ 
+     config(_userConfig, env) {
+-      const include = env.command === 'serve' ? ['@vanilla-extract/css/injectStyles'] : [];
++      useRuntime = server && env.command === 'serve'
++      const include = useRuntime ? ['@vanilla-extract/css/injectStyles'] : [];
+       return {
+         optimizeDeps: {
+           include
+@@ -44,7 +46,7 @@ function vanillaExtractPlugin({
+ 
+     configResolved(resolvedConfig) {
+       config = resolvedConfig;
+-      virtualExt = `.vanilla.${config.command === 'serve' ? 'js' : 'css'}`;
++      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}?hash=`;
+       packageInfo = integration.getPackageInfo(config.root);
+     },
+ 
+@@ -66,7 +68,7 @@ function vanillaExtractPlugin({
+ 
+         const css = cssMap.get(fileScopeId);
+ 
+-        if (!server) {
++        if (!useRuntime) {
+           return css;
+         }
+ 
