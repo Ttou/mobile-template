@@ -41,3 +41,7 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## 注意事项
+
+- 目前按需加载有问题 [issue](https://github.com/vitejs/vite/issues/3924)，所以全部引入 `vant`

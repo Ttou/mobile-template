@@ -6,7 +6,6 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
 import { injectHtml } from 'vite-plugin-html'
-import styleImport from 'vite-plugin-style-import'
 import svgIcons from 'vite-plugin-svg-icons'
 
 import { browserslist } from './package.json'
@@ -38,17 +37,6 @@ export default defineConfig({
       targets: browserslist
     }),
     compression(),
-    styleImport({
-      libs: [
-        {
-          libraryName: 'vant',
-          esModule: true,
-          resolveStyle: name => {
-            return `vant/es/${name}/style/index`
-          }
-        }
-      ]
-    }),
     svgIcons({
       iconDirs: [resolve(__dirname, 'src/icons')],
       symbolId: 'icon-[dir]-[name]'
