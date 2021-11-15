@@ -6,12 +6,12 @@ import { createApp } from 'vue'
 
 import App from './App'
 import router from './router'
-import store from './store'
+import pinia from './store'
 
 const app = createApp(App)
 
 app.use(Vant)
 app.use(router)
-app.use(store)
+app.use(pinia)
 
 app.mount('#app')
