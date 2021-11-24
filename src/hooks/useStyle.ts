@@ -1,4 +1,4 @@
-export default () => {
+export default function useStyle() {
   /**
    * 单行省略
    */
