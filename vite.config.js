@@ -11,6 +11,7 @@ import svgIcons from 'vite-plugin-svg-icons'
 import { browserslist } from './package.json'
 
 export default defineConfig({
+  cacheDir: resolve('.vite'),
   resolve: {
     alias: [
       {
