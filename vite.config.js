@@ -17,13 +17,6 @@ export default defineConfig({
       {
         find: '@',
         replacement: resolve(__dirname, 'src')
-      },
-      {
-        find: 'vue-types',
-        replacement:
-          process.env.NODE_ENV === 'development'
-            ? 'vue-types'
-            : 'vue-types/shim'
       }
     ]
   },
