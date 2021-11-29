@@ -1,8 +1,8 @@
 diff --git a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
-index ae118d8..c772f3b 100644
+index 70e1c55..85b3779 100644
 --- a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
 +++ b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.dev.js
-@@ -20,6 +20,7 @@ function vanillaExtractPlugin({
+@@ -21,6 +21,7 @@ function vanillaExtractPlugin({
    let config;
    let packageInfo;
    let server;
@@ -10,9 +10,9 @@ index ae118d8..c772f3b 100644
    const cssMap = new Map();
    let virtualExt;
    return {
-@@ -31,7 +32,8 @@ function vanillaExtractPlugin({
+@@ -32,7 +33,8 @@ function vanillaExtractPlugin({
      },
- 
+
      config(_userConfig, env) {
 -      const include = env.command === 'serve' ? ['@vanilla-extract/css/injectStyles'] : [];
 +      useRuntime = server && env.command === 'serve'
@@ -20,29 +20,29 @@ index ae118d8..c772f3b 100644
        return {
          optimizeDeps: {
            include
-@@ -44,7 +46,7 @@ function vanillaExtractPlugin({
- 
+@@ -45,7 +47,7 @@ function vanillaExtractPlugin({
+
      configResolved(resolvedConfig) {
        config = resolvedConfig;
 -      virtualExt = `.vanilla.${config.command === 'serve' ? 'js' : 'css'}`;
-+      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}?hash=`;
++      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}`;
        packageInfo = integration.getPackageInfo(config.root);
      },
- 
-@@ -66,7 +68,7 @@ function vanillaExtractPlugin({
- 
+
+@@ -65,7 +67,7 @@ function vanillaExtractPlugin({
+
          const css = cssMap.get(fileScopeId);
- 
+
 -        if (!server) {
 +        if (!useRuntime) {
            return css;
          }
- 
+
 diff --git a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
-index ae118d8..c772f3b 100644
+index 70e1c55..85b3779 100644
 --- a/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
 +++ b/node_modules/@vanilla-extract/vite-plugin/dist/vanilla-extract-vite-plugin.cjs.prod.js
-@@ -20,6 +20,7 @@ function vanillaExtractPlugin({
+@@ -21,6 +21,7 @@ function vanillaExtractPlugin({
    let config;
    let packageInfo;
    let server;
@@ -50,9 +50,9 @@ index ae118d8..c772f3b 100644
    const cssMap = new Map();
    let virtualExt;
    return {
-@@ -31,7 +32,8 @@ function vanillaExtractPlugin({
+@@ -32,7 +33,8 @@ function vanillaExtractPlugin({
      },
- 
+
      config(_userConfig, env) {
 -      const include = env.command === 'serve' ? ['@vanilla-extract/css/injectStyles'] : [];
 +      useRuntime = server && env.command === 'serve'
@@ -60,21 +60,21 @@ index ae118d8..c772f3b 100644
        return {
          optimizeDeps: {
            include
-@@ -44,7 +46,7 @@ function vanillaExtractPlugin({
- 
+@@ -45,7 +47,7 @@ function vanillaExtractPlugin({
+
      configResolved(resolvedConfig) {
        config = resolvedConfig;
 -      virtualExt = `.vanilla.${config.command === 'serve' ? 'js' : 'css'}`;
-+      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}?hash=`;
++      virtualExt = `.vanilla.${useRuntime ? 'js' : 'css'}`;
        packageInfo = integration.getPackageInfo(config.root);
      },
- 
-@@ -66,7 +68,7 @@ function vanillaExtractPlugin({
- 
+
+@@ -65,7 +67,7 @@ function vanillaExtractPlugin({
+
          const css = cssMap.get(fileScopeId);
- 
+
 -        if (!server) {
 +        if (!useRuntime) {
            return css;
          }
- 
+
