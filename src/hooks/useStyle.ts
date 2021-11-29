@@ -1,4 +1,4 @@
-export default function useStyle() {
+export function useStyle() {
   /**
    * 单行省略
    */

@@ -1,6 +1,6 @@
 import { ConfigProviderProps } from 'vant'
 
-export default function useConfig() {
+export function useConfig(): ConfigProviderProps {
   const themeVars = {
     buttonPrimaryBorderColor: '#07c160',
     buttonPrimaryBackgroundColor: '#07c160'
@@ -10,5 +10,5 @@ export default function useConfig() {
     tag: 'div',
     themeVars,
     iconPrefix: 'van-icon'
-  } as ConfigProviderProps
+  }
 }
