@@ -1,5 +1,5 @@
 import { Tabbar, TabbarItem } from 'vant'
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { SvgIcon } from '@/components'
@@ -12,59 +12,80 @@ export default defineComponent({
   name: 'Tabbar',
   setup() {
     const activeTab = ref(0)
+    const tabs = ref([
+      {
+        label: '首页',
+        name: ROUTE.INDEX.name,
+        path: ROUTE.INDEX.path,
+        icon: 'antOutline-home'
+      },
+      {
+        label: '分类',
+        name: ROUTE.CATEGORY.name,
+        path: ROUTE.CATEGORY.path,
+        icon: 'antOutline-appstore'
+      },
+      {
+        label: '商铺',
+        name: ROUTE.SHOP.name,
+        path: ROUTE.SHOP.path,
+        icon: 'antOutline-shop'
+      },
+      {
+        label: '购物车',
+        name: ROUTE.CART.name,
+        path: ROUTE.CART.path,
+        icon: 'antOutline-shopping'
+      },
+      {
+        label: '我的',
+        name: ROUTE.MY.name,
+        path: ROUTE.MY.path,
+        icon: 'antOutline-user'
+      }
+    ])
 
     const route = useRoute()
 
     const show = computed(() =>
       [
-        ROUTE.INDEX.path,
-        ROUTE.CATEGORY.path,
-        ROUTE.SHOP.path,
-        ROUTE.CART.path,
-        ROUTE.MY.path
-      ].includes(route.path)
+        ROUTE.INDEX.name,
+        ROUTE.CATEGORY.name,
+        ROUTE.SHOP.name,
+        ROUTE.CART.name,
+        ROUTE.MY.name
+      ].includes(route.name as string)
+    )
+
+    watch(
+      () => route.path,
+      () => {
+        const index = tabs.value.findIndex(v => v.name === route.name)
+
+        if (index > -1) {
+          activeTab.value = index
+        }
+
+        console.log(route.name, index)
+      },
+      {
+        immediate: true
+      }
     )
 
     return {
       activeTab,
+      tabs,
       show
     }
   },
   render() {
-    const tabs = [
-      {
-        name: '首页',
-        path: ROUTE.INDEX.path,
-        icon: 'antOutline-home'
-      },
-      {
-        name: '分类',
-        path: ROUTE.CATEGORY.path,
-        icon: 'antOutline-appstore'
-      },
-      {
-        name: '商铺',
-        path: ROUTE.SHOP.path,
-        icon: 'antOutline-shop'
-      },
-      {
-        name: '购物车',
-        path: ROUTE.CART.path,
-        icon: 'antOutline-shopping'
-      },
-      {
-        name: '我的',
-        path: ROUTE.MY.path,
-        icon: 'antOutline-user'
-      }
-    ] as TabItem[]
-
     const renderItem = (tab: TabItem) => (
       <TabbarItem
         to={tab.path}
         v-slots={{
           icon: () => <SvgIcon class={css.icon} name={tab.icon} />,
-          default: () => <span>{tab.name}</span>
+          default: () => <span>{tab.label}</span>
         }}
       />
     )
@@ -77,7 +98,7 @@ export default defineComponent({
         activeColor="#F759AB"
         inactiveColor="#BFBFBF"
       >
-        {tabs.map(renderItem)}
+        {this.tabs.map(renderItem)}
       </Tabbar>
     )
   }
