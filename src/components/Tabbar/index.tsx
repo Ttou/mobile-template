@@ -65,8 +65,6 @@ export default defineComponent({
         if (index > -1) {
           activeTab.value = index
         }
-
-        console.log(route.name, index)
       },
       {
         immediate: true
