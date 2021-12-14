@@ -11,12 +11,11 @@ import svgIcons from 'vite-plugin-svg-icons'
 import { browserslist } from './package.json'
 
 export default defineConfig({
-  cacheDir: resolve('.vite'),
   resolve: {
     alias: [
       {
         find: '@',
-        replacement: resolve(__dirname, 'src')
+        replacement: resolve('src')
       }
     ]
   },
@@ -32,7 +31,7 @@ export default defineConfig({
     }),
     compression(),
     svgIcons({
-      iconDirs: [resolve(__dirname, 'src/icons')],
+      iconDirs: [resolve('src/icons')],
       symbolId: 'icon-[dir]-[name]'
     }),
     injectHtml({
