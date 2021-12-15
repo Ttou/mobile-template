@@ -20,12 +20,12 @@ export default defineConfig({
     ]
   },
   plugins: [
+    vanillaExtractPlugin(),
     vue(),
     vueJsx({
       transformOn: true,
       enableObjectSlots: false
     }),
-    vanillaExtractPlugin(),
     legacy({
       targets: browserslist
     }),
