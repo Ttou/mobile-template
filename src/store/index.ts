@@ -1,4 +1,6 @@
 import { createPinia } from 'pinia'
 
-export default createPinia()
+const store = createPinia()
+
 export * from './useMainStore'
+export default store

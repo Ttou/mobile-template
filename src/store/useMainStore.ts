@@ -1,8 +1,14 @@
 import { defineStore } from 'pinia'
 
-export const useMainStore = defineStore('main', {
-  state: () => ({
-    token: ''
-  }),
-  actions: {}
-})
+export function useMainStore() {
+  return defineStore('main', {
+    state: () => ({
+      count: 0
+    }),
+    actions: {
+      add() {
+        this.count++
+      }
+    }
+  })()
+}

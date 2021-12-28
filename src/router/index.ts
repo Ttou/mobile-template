@@ -2,9 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import { ROUTE } from './constants'
 
-export { ROUTE }
-
-export default createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   scrollBehavior: (to, from, savedPosition) => {
     return {
@@ -45,3 +43,7 @@ export default createRouter({
     }
   ]
 })
+
+export { ROUTE }
+
+export default router
