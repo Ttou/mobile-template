@@ -1,22 +1,22 @@
 export const ROUTE = {
   INDEX: {
     path: '/',
-    name: 'Index'
+    name: 'IndexView'
   },
   CATEGORY: {
     path: '/category',
-    name: 'CATEGORY'
+    name: 'CategoryView'
   },
   SHOP: {
     path: '/shop',
-    name: 'Shop'
+    name: 'ShopView'
   },
   CART: {
     path: '/cart',
-    name: 'Cart'
+    name: 'CartView'
   },
   MY: {
     path: '/my',
-    name: 'My'
+    name: 'MyView'
   }
 }

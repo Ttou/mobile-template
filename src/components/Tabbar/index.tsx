@@ -9,7 +9,7 @@ import * as css from './index.css'
 import type { TabItem } from './types'
 
 export default defineComponent({
-  name: 'Tabbar',
+  name: 'TabbarComp',
   setup() {
     const activeTab = ref(0)
     const tabs = ref([

@@ -1,11 +1,13 @@
 import { Button, Toast } from 'vant'
 import { computed, defineComponent, onMounted } from 'vue'
 
+import { ROUTE } from '@/router'
 import { useMainStore } from '@/store'
 
 import * as css from './index.css'
 
 export default defineComponent({
+  name: ROUTE.INDEX.name,
   setup() {
     const mainStore = useMainStore()
 

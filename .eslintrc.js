@@ -10,6 +10,7 @@ module.exports = {
   extends: [
     '@vue/standard',
     '@vue/typescript/recommended',
+    'plugin:vue/vue3-recommended',
     'prettier',
     'plugin:prettier/recommended'
   ],
@@ -24,6 +25,7 @@ module.exports = {
     'multiline-ternary': 'off',
     'no-return-await': 'off',
     'no-prototype-builtins': 'off',
+    'no-useless-escape': 'off',
     'import/no-webpack-loader-syntax': 'off',
     'space-before-function-paren': 'off',
     'simple-import-sort/imports': 'error',
