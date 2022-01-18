@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
-import { injectHtml } from 'vite-plugin-html'
+import html from 'vite-plugin-html'
 import svgIcons from 'vite-plugin-svg-icons'
 
 import { browserslist } from './package.json'
@@ -34,11 +34,14 @@ export default defineConfig({
       iconDirs: [resolve('src/icons')],
       symbolId: 'icon-[dir]-[name]'
     }),
-    injectHtml({
-      injectData: {
-        title: '移动端模板',
-        injectScript: '<script src="./inject.js"></script>'
-      }
+    html({
+      inject: {
+        data: {
+          title: '移动端模板',
+          injectScript: '<script src="./inject.js"></script>'
+        }
+      },
+      minify: true
     })
   ],
   build: {
