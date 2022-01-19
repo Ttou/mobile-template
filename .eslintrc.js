@@ -1,6 +1,6 @@
-require('@rushstack/eslint-patch/modern-module-resolution')
+const { defineEslintConfig } = require('@ttou/define-config')
 
-module.exports = {
+module.exports = defineEslintConfig({
   root: true,
   env: {
     browser: true,
@@ -27,6 +27,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'vue/multi-word-component-names': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -35,4 +36,4 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off'
   }
-}
+})
