@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 import { SvgIcon } from '@/components'
 import { ROUTE } from '@/router'
 
-import * as css from './index.css'
+import styles from './index.module.css'
 import type { TabItem } from './types'
 
 export default defineComponent({
@@ -82,7 +82,7 @@ export default defineComponent({
       <TabbarItem
         to={tab.path}
         v-slots={{
-          icon: () => <SvgIcon class={css.icon} name={tab.icon} />,
+          icon: () => <SvgIcon class={styles.icon} name={tab.icon} />,
           default: () => <span>{tab.label}</span>
         }}
       />
@@ -92,7 +92,7 @@ export default defineComponent({
       <Tabbar
         v-show={this.show}
         v-model={this.activeTab}
-        class={css.tabbar}
+        class={styles.tabbar}
         activeColor="#F759AB"
         inactiveColor="#BFBFBF"
       >

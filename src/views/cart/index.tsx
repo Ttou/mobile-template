@@ -2,11 +2,11 @@ import { defineComponent } from 'vue'
 
 import { ROUTE } from '@/router'
 
-import * as css from './index.css'
+import styles from './index.module.css'
 
 export default defineComponent({
   name: ROUTE.CART.name,
   render() {
-    return <div class={css.view}>购物车</div>
+    return <div class={styles.view}>购物车</div>
   }
 })

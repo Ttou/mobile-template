@@ -1,4 +1,3 @@
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -11,6 +10,11 @@ import svgIcons from 'vite-plugin-svg-icons'
 import { browserslist } from './package.json'
 
 export default defineConfig({
+  css: {
+    modules: {
+      generateScopedName: '[name]__[local]___[hash:base64:5]'
+    }
+  },
   resolve: {
     alias: [
       {
@@ -20,7 +24,6 @@ export default defineConfig({
     ]
   },
   plugins: [
-    vanillaExtractPlugin(),
     vue(),
     vueJsx({
       transformOn: true,

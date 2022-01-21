@@ -4,7 +4,7 @@ import { computed, defineComponent, onMounted } from 'vue'
 import { ROUTE } from '@/router'
 import { useMainStore } from '@/store'
 
-import * as css from './index.css'
+import styles from './index.module.css'
 
 export default defineComponent({
   name: ROUTE.INDEX.name,
@@ -40,7 +40,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class={css.view}>
+      <div class={styles.view}>
         <h2>首页</h2>
         <p>{this.count}</p>
         <Button type="primary" onClick={this.handleClick}>
