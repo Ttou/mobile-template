@@ -12,7 +12,7 @@ import { browserslist } from './package.json'
 export default defineConfig({
   css: {
     modules: {
-      generateScopedName: '[local]___[hash:base64:5]'
+      generateScopedName: '[local]__[hash:base64:5]'
     }
   },
   resolve: {
