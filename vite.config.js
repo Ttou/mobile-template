@@ -5,8 +5,9 @@ import { resolve } from 'path'
 import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
-import html from 'vite-plugin-html'
-import svgIcons from 'vite-plugin-svg-icons'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import { createStyleImportPlugin, VantResolve } from 'vite-plugin-style-import'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import { browserslist } from './package.json'
 
@@ -34,11 +35,7 @@ export default defineConfig({
       targets: browserslist
     }),
     compression(),
-    svgIcons({
-      iconDirs: [resolve('src/icons')],
-      symbolId: 'icon-[dir]-[name]'
-    }),
-    html({
+    createHtmlPlugin({
       inject: {
         data: {
           title: '移动端模板',
@@ -46,6 +43,13 @@ export default defineConfig({
         }
       },
       minify: true
+    }),
+    createStyleImportPlugin({
+      resolves: [VantResolve()]
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [resolve('src/icons')],
+      symbolId: 'icon-[dir]-[name]'
     })
   ],
   build: {
