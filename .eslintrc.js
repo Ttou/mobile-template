@@ -28,6 +28,7 @@ module.exports = defineEslintConfig({
     'space-before-function-paren': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'vue/attribute-hyphenation': 'off',
     'vue/multi-word-component-names': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-var-requires': 'off',
