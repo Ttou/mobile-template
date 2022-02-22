@@ -4,9 +4,9 @@
   "repository": "git@gitee.com:jh_shot/mobile-template.git",
   "license": "MulanPSL2",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite",
-    "build": "cross-env NODE_ENV=production vite build",
-    "serve": "cross-env NODE_ENV=staging vite preview",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "prepare": "husky install",
     "commit": "git add . && git cz",
     "format": "prettier \"src/**/*.{ts,tsx,vue}\" --write",
