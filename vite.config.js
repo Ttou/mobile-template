@@ -8,6 +8,7 @@ import compression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin, VantResolve } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
 
@@ -38,8 +39,7 @@ export default defineConfig({
     createHtmlPlugin({
       inject: {
         data: {
-          title: '移动端模板',
-          injectScript: '<script src="./inject.js"></script>'
+          title: '移动端模板'
         }
       },
       minify: true
@@ -50,6 +50,11 @@ export default defineConfig({
     createSvgIconsPlugin({
       iconDirs: [resolve('src/icons')],
       symbolId: 'icon-[dir]-[name]'
+    }),
+    viteVConsole({
+      entry: resolve('src/main.ts'),
+      enabled: true,
+      localEnabled: true
     })
   ],
   build: {

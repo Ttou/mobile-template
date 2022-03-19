@@ -14,12 +14,13 @@
     "lint:style": "stylelint \"src/**/*.{css,vue}\" --fix"
   },
   "dependencies": {
-    "@vueuse/core": "7.7.0",
+    "@vueuse/core": "8.1.2",
     "lodash-es": "4.17.21",
-    "pinia": "2.0.11",
-    "vant": "3.4.5",
+    "pinia": "2.0.12",
+    "vant": "3.4.6",
+    "vconsole": "3.13.0",
     "vue": "3.2.31",
-    "vue-router": "4.0.13"
+    "vue-router": "4.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -28,18 +29,18 @@
     "@ttou/define-config": "^1.0.5",
     "@ttou/postcss-px-to-viewport": "^1.1.6",
     "@types/lodash-es": "^4.17.4",
-    "@vitejs/plugin-legacy": "^1.7.0",
-    "@vitejs/plugin-vue": "^2.2.0",
-    "@vitejs/plugin-vue-jsx": "^1.3.4",
+    "@vitejs/plugin-legacy": "^1.7.1",
+    "@vitejs/plugin-vue": "^2.2.4",
+    "@vitejs/plugin-vue-jsx": "^1.3.8",
     "@vue/compiler-sfc": "^3.2.31",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "autoprefixer": "^10.4.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.4.0",
+    "eslint": "^8.11.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-vue": "^8.4.0",
+    "eslint-plugin-vue": "^8.5.0",
     "husky": "^7.0.2",
     "lint-staged": "^12.3.4",
     "postcss": "^8.4.4",
@@ -49,11 +50,12 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.5.4",
-    "vite": "^2.8.4",
+    "vite": "^2.8.6",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-html": "^3.0.6",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-style-import": "^2.0.0",
-    "vite-plugin-svg-icons": "^2.0.1"
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vconsole": "^1.2.1"
   },
   "browserslist": [
     "Chrome >= 51",
