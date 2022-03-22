@@ -1,6 +1,7 @@
-import { Button, Toast } from 'vant'
+import { Button } from 'vant'
 import { computed, defineComponent, onMounted } from 'vue'
 
+import { useLoading } from '@/hooks'
 import { ROUTE } from '@/router'
 import { useMainStore } from '@/store'
 
@@ -14,14 +15,16 @@ export default defineComponent({
     const count = computed(() => mainStore.count)
 
     function init() {
-      const loading = Toast.loading({
+      const { start, clear } = useLoading({
         message: '加载中',
         duration: 0,
         forbidClick: true
       })
 
+      start()
+
       setTimeout(() => {
-        loading.clear()
+        clear()
       }, 1500)
     }
 
