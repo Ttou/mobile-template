@@ -1,0 +1,1 @@
+import{R as e}from"./index.626b635d.js";import{d as a,c as r,n}from"./vendor.4983a062.js";const t="view__0-Gnh";var o={view:t},d=a({name:e.MY.name,render(){return r("div",{class:o.view},[n("\u6211\u7684")])}});export{d as default};
