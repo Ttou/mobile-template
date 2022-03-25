@@ -6,62 +6,75 @@ import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import { viteMockServe } from 'vite-plugin-mock'
 import { createStyleImportPlugin, VantResolve } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
 
-export default defineConfig({
-  css: {
-    modules: {
-      generateScopedName: '[local]__[hash:base64:5]'
-    }
-  },
-  resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: fileURLToPath(new URL('./src', import.meta.url))
+export default defineConfig(({ mode }) => {
+  return {
+    base: mode === 'development' ? '/' : '/mobile-template/',
+    css: {
+      modules: {
+        generateScopedName: '[local]__[hash:base64:5]'
       }
-    ]
-  },
-  plugins: [
-    vue(),
-    vueJsx({
-      transformOn: true,
-      enableObjectSlots: false
-    }),
-    legacy({
-      targets: browserslist
-    }),
-    compression(),
-    createHtmlPlugin({
-      inject: {
-        data: {
-          title: '移动端模板'
+    },
+    resolve: {
+      alias: [
+        {
+          find: '@',
+          replacement: fileURLToPath(new URL('./src', import.meta.url))
         }
-      },
-      minify: true
-    }),
-    createStyleImportPlugin({
-      resolves: [VantResolve()]
-    }),
-    createSvgIconsPlugin({
-      iconDirs: [resolve('src/icons')],
-      symbolId: 'icon-[dir]-[name]'
-    }),
-    viteVConsole({
-      entry: resolve('src/main.ts'),
-      enabled: true,
-      localEnabled: true
-    })
-  ],
-  build: {
-    brotliSize: false
-  },
-  server: {
-    host: true,
-    port: 8080
+      ]
+    },
+    plugins: [
+      vue(),
+      vueJsx({
+        transformOn: true,
+        enableObjectSlots: false
+      }),
+      legacy({
+        targets: browserslist
+      }),
+      compression(),
+      createHtmlPlugin({
+        inject: {
+          data: {
+            title: '移动端模板'
+          }
+        },
+        minify: true
+      }),
+      createStyleImportPlugin({
+        resolves: [VantResolve()]
+      }),
+      createSvgIconsPlugin({
+        iconDirs: [resolve('src/icons')],
+        symbolId: 'icon-[dir]-[name]'
+      }),
+      viteVConsole({
+        entry: resolve('src/main.ts'),
+        enabled: true,
+        localEnabled: true
+      }),
+      viteMockServe({
+        mockPath: 'mock',
+        localEnabled: true,
+        prodEnabled: true,
+        injectCode: `
+          import { setupProdMockServer } from './mockProdServer'
+          setupProdMockServer()
+        `
+      })
+    ],
+    build: {
+      brotliSize: false
+    },
+    server: {
+      host: true,
+      port: 8080
+    }
   }
 })

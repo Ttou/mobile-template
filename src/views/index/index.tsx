@@ -1,6 +1,7 @@
 import { Button } from 'vant'
-import { computed, defineComponent, onMounted } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 
+import { commonApi } from '@/apis'
 import { useLoading } from '@/hooks'
 import { ROUTE } from '@/router'
 import { useMainStore } from '@/store'
@@ -10,22 +11,28 @@ import styles from './index.module.css'
 export default defineComponent({
   name: ROUTE.INDEX.name,
   setup() {
+    const title = ref('-')
+
     const mainStore = useMainStore()
 
     const count = computed(() => mainStore.count)
 
-    function init() {
+    async function init() {
       const { start, clear } = useLoading({
         message: '加载中',
         duration: 0,
         forbidClick: true
       })
 
-      start()
+      try {
+        start()
 
-      setTimeout(() => {
+        const res = await commonApi.getInfo()
+
+        title.value = res.title
+      } finally {
         clear()
-      }, 1500)
+      }
     }
 
     function handleClick() {
@@ -37,6 +44,7 @@ export default defineComponent({
     })
 
     return {
+      title,
       count,
       handleClick
     }
@@ -44,7 +52,7 @@ export default defineComponent({
   render() {
     return (
       <div class={styles.view}>
-        <h2>首页</h2>
+        <h2>{this.title}</h2>
         <p>{this.count}</p>
         <Button type="primary" onClick={this.handleClick}>
           点击
