@@ -68,16 +68,6 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "lint-staged": {
-    "*.{ts,tsx,vue}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{css,vue}": [
-      "stylelint --fix",
-      "prettier --write"
-    ]
-  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
     "commit-msg": "npx commitlint --edit $1"
