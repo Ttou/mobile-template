@@ -6,7 +6,7 @@ import { SvgIcon } from '@/components'
 import { ROUTE } from '@/router'
 
 import styles from './index.module.css'
-import type { TabItem } from './types'
+import type { TabItem } from './TabbarTypes'
 
 export default defineComponent({
   name: 'Tabbar',

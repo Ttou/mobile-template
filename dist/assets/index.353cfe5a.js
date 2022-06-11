@@ -1,1 +1,0 @@
-import{d as e,Y as a,a as r,Z as n}from"./index.4c4df6a6.js";const s="view__0-Gnh";var t={view:s},i=e({name:a.MY.name,render(){return r("div",{class:t.view},[n("\u6211\u7684")])}});export{i as default};

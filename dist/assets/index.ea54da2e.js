@@ -1,0 +1,1 @@
+import{d as e,Z as a,a as r,_ as s}from"./index.581ad220.js";const t="view__r0uOy";var n={view:t},i=e({name:a.SHOP.name,render(){return r("div",{class:n.view},[s("\u5546\u94FA")])}});export{i as default};
