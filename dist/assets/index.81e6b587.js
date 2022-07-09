@@ -1,1 +1,0 @@
-import{d as e,Z as a,a as r,_ as s}from"./index.581ad220.js";const t="view__Jdj4a";var d={view:t},i=e({name:a.CART.name,render(){return r("div",{class:d.view},[s("\u8D2D\u7269\u8F66")])}});export{i as default};

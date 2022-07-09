@@ -2,7 +2,6 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
-import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -22,12 +21,9 @@ export default defineConfig(({ mode }) => {
       }
     },
     resolve: {
-      alias: [
-        {
-          find: '@',
-          replacement: fileURLToPath(new URL('./src', import.meta.url))
-        }
-      ]
+      alias: {
+        '@/': `${resolve(__dirname, 'src')}/`
+      }
     },
     plugins: [
       vue(),
