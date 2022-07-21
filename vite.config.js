@@ -2,11 +2,12 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
+import { VantResolver } from 'unplugin-vue-components/resolvers'
+import components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteMockServe } from 'vite-plugin-mock'
-import { createStyleImportPlugin, VantResolve } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteVConsole } from 'vite-plugin-vconsole'
 
@@ -35,6 +36,10 @@ export default defineConfig(({ mode }) => {
         targets: browserslist
       }),
       compression(),
+      components({
+        dts: false,
+        resolvers: [VantResolver()]
+      }),
       createHtmlPlugin({
         inject: {
           data: {
@@ -42,9 +47,6 @@ export default defineConfig(({ mode }) => {
           }
         },
         minify: true
-      }),
-      createStyleImportPlugin({
-        resolves: [VantResolve()]
       }),
       createSvgIconsPlugin({
         iconDirs: [resolve('src/icons')],

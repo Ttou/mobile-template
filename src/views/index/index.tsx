@@ -1,8 +1,6 @@
 import { Button } from 'vant'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent } from 'vue'
 
-import { commonApi } from '@/apis'
-import { useLoading } from '@/hooks'
 import { ROUTE } from '@/router'
 
 import { useCount, useInit } from './hooks'

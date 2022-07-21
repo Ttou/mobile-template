@@ -10,14 +10,14 @@
     "commit": "git add . && git cz"
   },
   "dependencies": {
-    "@vueuse/core": "8.6.0",
+    "@vueuse/core": "8.9.4",
     "axios": "0.27.2",
     "lodash-es": "4.17.21",
-    "pinia": "2.0.14",
-    "vant": "3.4.9",
+    "pinia": "2.0.16",
+    "vant": "3.5.2",
     "vconsole": "3.14.6",
-    "vue": "3.2.36",
-    "vue-router": "4.0.15"
+    "vue": "3.2.37",
+    "vue-router": "4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -51,11 +51,11 @@
     "stylelint-config-prettier": "^9.0.0",
     "stylelint-config-standard": "^26.0.0",
     "typescript": "^4.7.2",
+    "unplugin-vue-components": "^0.21.1",
     "vite": "^2.9.9",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-mock": "^2.9.6",
-    "vite-plugin-style-import": "^2.0.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vconsole": "^1.2.1"
   },
