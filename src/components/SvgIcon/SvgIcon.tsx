@@ -17,7 +17,7 @@ export default defineComponent({
   render() {
     return (
       <svg aria-hidden="true">
-        <use xlinkHref={this.symbolId} />
+        <use xlinkHref={this.symbolId} fill={this.color} />
       </svg>
     )
   }

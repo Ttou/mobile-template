@@ -15,8 +15,14 @@ module.exports = defineEslintConfig({
   parserOptions: {
     ecmaVersion: 2020
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'simple-import-sort',
+    'prettier',
+    'eslint-plugin-tsdoc'
+  ],
   rules: {
+    'tsdoc/syntax': 'warn',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'prettier/prettier': 'error',

@@ -50,7 +50,8 @@ export default defineConfig(({ mode }) => {
       }),
       createSvgIconsPlugin({
         iconDirs: [resolve('src/icons')],
-        symbolId: 'icon-[dir]-[name]'
+        symbolId: 'icon-[dir]-[name]',
+        svgoOptions: true
       }),
       viteVConsole({
         entry: resolve('src/main.ts'),
