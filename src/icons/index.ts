@@ -1,3 +1,4 @@
+import type { IconifyIcons } from '@iconify/types'
 import { addCollection } from '@iconify/vue'
 
 const svgs = import.meta.glob('./*.svg', { as: 'raw' })
@@ -12,24 +13,42 @@ function getIcon(path: string) {
       let body = res.replace(/<\/svg>/, '')
       body = body.replace(/^<svg[^>]+[\s\S]>/, '')
 
+      const match = res.match(/viewBox="[\s\S][^"]+"/)
+      let width = 1024
+      let height = 1024
+
+      // 获取 viewBox 中的宽高
+      if (match.length > 0) {
+        const a = match[0].substring(
+          match[0].indexOf('"') + 1,
+          match[0].lastIndexOf('"')
+        )
+        const b = a.split(' ')
+
+        width = Number(b[2])
+        height = Number(b[3])
+      }
+
       resolve({
         iconName,
-        body
+        body,
+        width,
+        height
       })
     })
   })
 }
 
-async function init() {
-  const icons = {}
+async function loadIcon() {
+  const icons = {} as IconifyIcons
 
   for (const path in svgs) {
-    const icon = await getIcon(path)
-    console.log(icon)
+    const icon: any = await getIcon(path)
+
     icons[icon.iconName] = {
       body: icon.body,
-      width: 1024,
-      height: 1024
+      width: icon.width,
+      height: icon.height
     }
   }
 
@@ -38,4 +57,4 @@ async function init() {
     icons
   })
 }
-init()
+loadIcon()

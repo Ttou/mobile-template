@@ -23,7 +23,7 @@ export default defineComponent({
       <div class={styles.view}>
         <h2>{this.title}</h2>
         <p>{this.count}</p>
-        <Icon class={styles.customIcon} icon={'custom:demo'} />
+        <Icon icon={'custom:demo'} />
         <Button type="primary" onClick={this.handleClick}>
           点击
         </Button>
