@@ -8,7 +8,6 @@ import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteMockServe } from 'vite-plugin-mock'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
@@ -47,11 +46,6 @@ export default defineConfig(({ mode }) => {
           }
         },
         minify: true
-      }),
-      createSvgIconsPlugin({
-        iconDirs: [resolve('src/icons')],
-        symbolId: 'icon-[dir]-[name]',
-        svgoOptions: true
       }),
       viteVConsole({
         entry: resolve('src/main.ts'),

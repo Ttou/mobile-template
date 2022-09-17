@@ -11,6 +11,7 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
+    "@iconify/vue": "^4.0.0",
     "@vueuse/core": "9.2.0",
     "axios": "0.27.2",
     "lodash-unified": "1.0.2",
@@ -57,7 +58,6 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-mock": "^2.9.6",
-    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vconsole": "^1.2.1"
   },
   "browserslist": [

@@ -1,8 +1,8 @@
+import { Icon } from '@iconify/vue'
 import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { SvgIcon } from '@/components'
 import { ROUTE } from '@/router'
 
 import styles from './index.module.css'
@@ -17,31 +17,31 @@ export default defineComponent({
         label: '首页',
         name: ROUTE.INDEX.name,
         path: ROUTE.INDEX.path,
-        icon: 'antOutline-home'
+        icon: 'ant-design:home-outlined'
       },
       {
         label: '分类',
         name: ROUTE.CATEGORY.name,
         path: ROUTE.CATEGORY.path,
-        icon: 'antOutline-appstore'
+        icon: 'ant-design:appstore-outlined'
       },
       {
         label: '商铺',
         name: ROUTE.SHOP.name,
         path: ROUTE.SHOP.path,
-        icon: 'antOutline-shop'
+        icon: 'ant-design:shop-outlined'
       },
       {
         label: '购物车',
         name: ROUTE.CART.name,
         path: ROUTE.CART.path,
-        icon: 'antOutline-shopping'
+        icon: 'ant-design:shopping-outlined'
       },
       {
         label: '我的',
         name: ROUTE.MY.name,
         path: ROUTE.MY.path,
-        icon: 'antOutline-user'
+        icon: 'ant-design:user-outlined'
       }
     ])
 
@@ -82,7 +82,7 @@ export default defineComponent({
       <TabbarItem
         to={tab.path}
         v-slots={{
-          icon: () => <SvgIcon class={styles.icon} name={tab.icon} />,
+          icon: () => <Icon icon={tab.icon} />,
           default: () => <span>{tab.label}</span>
         }}
       />

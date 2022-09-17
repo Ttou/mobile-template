@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/vue'
 import { Button } from 'vant'
 import { defineComponent } from 'vue'
 
@@ -22,6 +23,7 @@ export default defineComponent({
       <div class={styles.view}>
         <h2>{this.title}</h2>
         <p>{this.count}</p>
+        <Icon class={styles.customIcon} icon={'custom:demo'} />
         <Button type="primary" onClick={this.handleClick}>
           点击
         </Button>
