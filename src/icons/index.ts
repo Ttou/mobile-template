@@ -23,7 +23,7 @@ function getIcon(path: string) {
           match[0].indexOf('"') + 1,
           match[0].lastIndexOf('"')
         )
-        const b = a.split(' ')
+        const b = a.split(' ').filter(v => v !== ' ')
 
         width = Number(b[2])
         height = Number(b[3])

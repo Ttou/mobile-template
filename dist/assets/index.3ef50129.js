@@ -1,0 +1,1 @@
+import{d as e,_ as a,a as t,a0 as s}from"./index.c7d9f49a.js";const n="view__ZbtS4",o={view:n},d=e({name:a.CATEGORY.name,render(){return t("div",{class:o.view},[s("\u5206\u7C7B")])}});export{d as default};
