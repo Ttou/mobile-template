@@ -7,5 +7,5 @@ interface _Icon {
 declare module '@iconify/vue' {
   export const Icon: _Icon
 
-  export { addCollection } from '@iconify/vue/dist/iconify'
+  export { addCollection, loadIcons } from '@iconify/vue/dist/iconify'
 }
