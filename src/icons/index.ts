@@ -10,12 +10,11 @@ function getIcon(path: string) {
       const filename = path.substring(pos + 1)
       const iconName = filename.split('.')[0]
 
-      let body = res.replace(/<\/svg>/, '')
-      body = body.replace(/^<svg[^>]+[\s\S]>/, '')
-
+      const body = res.replace(/^<svg[^>]+[\s\S]>/, '').replace(/<\/svg>/, '')
       const match = res.match(/viewBox="[\s\S][^"]+"/)
-      let width = 1024
-      let height = 1024
+
+      let width = 48
+      let height = 48
 
       // 获取 viewBox 中的宽高
       if (match.length > 0) {

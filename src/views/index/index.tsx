@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/vue'
-import { Button } from 'vant'
+import { Button, Space } from 'vant'
 import { defineComponent } from 'vue'
 
 import { ROUTE } from '@/router'
@@ -22,11 +22,23 @@ export default defineComponent({
     return (
       <div class={styles.view}>
         <h2>{this.title}</h2>
-        <p>{this.count}</p>
-        <Icon icon={'custom:demo'} />
-        <Button type="primary" onClick={this.handleClick}>
-          点击
-        </Button>
+        <div class={styles.section}>
+          <h3>Store</h3>
+          <p>{this.count}</p>
+          <Button type="primary" onClick={this.handleClick}>
+            点击
+          </Button>
+        </div>
+        <div class={styles.section}>
+          <h3>自定义图标</h3>
+          <Space>
+            <Icon icon={'custom:coffee'} />
+            <Icon icon={'custom:chips'} />
+            <Icon icon={'custom:ice-cream'} />
+            <Icon icon={'custom-coke'} />
+            <Icon icon={'custom-hamburg'} />
+          </Space>
+        </div>
       </div>
     )
   }

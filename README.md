@@ -1,4 +1,4 @@
-<h1>Mobile Template</h1>
+# Mobile Template
 
 ## 简介
 
@@ -46,3 +46,4 @@ npm run build
 ## 注意事项
 
 - 装上 volar 插件后更好的支持模板开发
+- 项目开发时请锁定依赖版本
