@@ -30,6 +30,14 @@ export default defineComponent({
           </Button>
         </div>
         <div class={styles.section}>
+          <h3>框架图标</h3>
+          <Space>
+            <Icon icon={'ant-design:account-book-filled'} />
+            <Icon icon={'ant-design:aim-outlined'} />
+            <Icon icon={'ant-design:alert-filled'} />
+          </Space>
+        </div>
+        <div class={styles.section}>
           <h3>自定义图标</h3>
           <Space>
             <Icon icon={'custom:coffee'} />
