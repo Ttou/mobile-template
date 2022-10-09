@@ -1,1 +1,0 @@
-import{d as e,_ as a,a as s,$ as t}from"./index.cde0c31d.js";const n="view__RZcY4",o={view:n},d=e({name:a.SHOP.name,render(){return s("div",{class:o.view},[t("\u5546\u94FA")])}});export{d as default};
