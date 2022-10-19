@@ -2,5 +2,6 @@
   "path-intellisense.mappings": {
     "@": "${workspaceFolder}/src"
   },
-  "css.validate": false
+  "css.validate": false,
+  "less.validate": false
 }
