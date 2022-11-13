@@ -1,4 +1,6 @@
-module.exports = {
+const { defineCzCustomizable } = require('@ttou/define-config')
+
+module.exports = defineCzCustomizable({
   types: [
     { value: 'feat', name: 'feat:     新增功能' },
     { value: 'fix', name: 'fix:      修复 bug' },
@@ -37,4 +39,4 @@ module.exports = {
   allowBreakingChanges: ['feat', 'fix'],
   subjectLimit: 100,
   breaklineChar: '|'
-}
+})
