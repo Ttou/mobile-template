@@ -5,7 +5,6 @@ import { useRoute } from 'vue-router'
 
 import { ROUTE } from '@/router'
 
-import styles from './index.module.css'
 import type { TabItem } from './TabbarTypes'
 
 export default defineComponent({
@@ -92,7 +91,6 @@ export default defineComponent({
       <Tabbar
         v-show={this.show}
         v-model={this.activeTab}
-        class={styles.tabbar}
         activeColor="#F759AB"
         inactiveColor="#BFBFBF"
       >

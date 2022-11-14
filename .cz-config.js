@@ -1,6 +1,6 @@
-const { defineCzCustomizable } = require('@ttou/define-config')
+const { defineCzCustomizableConfig } = require('@ttou/define-config')
 
-module.exports = defineCzCustomizable({
+module.exports = defineCzCustomizableConfig({
   types: [
     { value: 'feat', name: 'feat:     新增功能' },
     { value: 'fix', name: 'fix:      修复 bug' },
