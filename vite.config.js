@@ -2,10 +2,12 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
+import visualizer from 'rollup-plugin-visualizer'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
-import compression from 'vite-plugin-compression'
+import { compression } from 'vite-plugin-compression2'
+import eslint from 'vite-plugin-eslint'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteMockServe } from 'vite-plugin-mock'
 import { viteVConsole } from 'vite-plugin-vconsole'
@@ -37,7 +39,11 @@ export default defineConfig(({ mode }) => {
       compression(),
       components({
         dts: false,
-        resolvers: [VantResolver()]
+        resolvers: [
+          VantResolver({
+            importStyle: false
+          })
+        ]
       }),
       createHtmlPlugin({
         inject: {
@@ -47,6 +53,7 @@ export default defineConfig(({ mode }) => {
         },
         minify: true
       }),
+      eslint(),
       viteVConsole({
         entry: resolve('src/main.ts'),
         enabled: true,
@@ -63,7 +70,10 @@ export default defineConfig(({ mode }) => {
       })
     ],
     build: {
-      brotliSize: false
+      brotliSize: false,
+      rollupOptions: {
+        plugins: [visualizer()]
+      }
     },
     server: {
       host: true,

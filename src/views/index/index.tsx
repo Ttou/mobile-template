@@ -10,8 +10,8 @@ import styles from './index.module.css'
 export default defineComponent({
   name: ROUTE.INDEX.name,
   setup() {
-    const { ...countHook } = useCount()
-    const { ...initHook } = useInit()
+    const countHook = useCount()
+    const initHook = useInit()
 
     return {
       ...countHook,

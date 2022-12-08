@@ -15,27 +15,27 @@ const router = createRouter({
     {
       ...ROUTE.INDEX,
       component: () => import('@/views/index'),
-      meta: { index: 1 }
+      meta: {}
     },
     {
       ...ROUTE.CATEGORY,
       component: () => import('@/views/category'),
-      meta: { index: 1 }
+      meta: {}
     },
     {
       ...ROUTE.SHOP,
       component: () => import('@/views/shop'),
-      meta: { index: 1 }
+      meta: {}
     },
     {
       ...ROUTE.CART,
       component: () => import('@/views/cart'),
-      meta: { index: 1 }
+      meta: {}
     },
     {
       ...ROUTE.MY,
       component: () => import('@/views/my'),
-      meta: { index: 1 }
+      meta: {}
     },
     {
       path: '/:pathMatch(.*)*',
