@@ -10,6 +10,7 @@ import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteMockServe } from 'vite-plugin-mock'
+import stylelint from 'vite-plugin-stylelint'
 import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
@@ -54,6 +55,7 @@ export default defineConfig(({ mode }) => {
         minify: true
       }),
       eslint(),
+      stylelint(),
       viteVConsole({
         entry: resolve('src/main.ts'),
         enabled: true,
