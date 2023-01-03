@@ -72,7 +72,6 @@ export default defineConfig(({ mode }) => {
       })
     ],
     build: {
-      brotliSize: false,
       rollupOptions: {
         plugins: [visualizer()]
       }
