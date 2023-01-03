@@ -1,10 +1,12 @@
 import { showLoadingToast } from 'vant'
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, reactive, toRefs } from 'vue'
 
 import { commonApi } from '@/apis'
 
 export function useInit() {
-  const title = ref('-')
+  const state = reactive({
+    title: '-'
+  })
 
   async function init() {
     const loading = showLoadingToast({
@@ -16,7 +18,7 @@ export function useInit() {
     try {
       const res = await commonApi.getInfo()
 
-      title.value = res.title
+      state.title = res.title
     } finally {
       loading.close()
     }
@@ -27,6 +29,6 @@ export function useInit() {
   })
 
   return {
-    title
+    ...toRefs(state)
   }
 }
