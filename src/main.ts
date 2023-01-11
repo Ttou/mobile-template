@@ -1,6 +1,7 @@
 // tsx 下必须全局引入样式
 import 'vant/lib/index.css'
-import './icons'
+import './assets/icons'
+import './assets/styles'
 
 import { createApp } from 'vue'
 

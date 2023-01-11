@@ -51,8 +51,8 @@ export default defineComponent({
             <Icon icon={'custom:coffee'} />
             <Icon icon={'custom:chips'} />
             <Icon icon={'custom:ice-cream'} />
-            <Icon icon={'custom-coke'} />
-            <Icon icon={'custom-hamburg'} />
+            <Icon icon={'custom:coke'} />
+            <Icon icon={'custom:hamburg'} />
           </Space>
         </div>
         <Popup
