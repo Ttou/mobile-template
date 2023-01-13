@@ -15,6 +15,8 @@ import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
 
+const versionNo = new Date().getTime()
+
 export default defineConfig(({ mode }) => {
   return {
     base: mode === 'development' ? '/' : '/mobile-template/',
@@ -49,7 +51,8 @@ export default defineConfig(({ mode }) => {
       createHtmlPlugin({
         inject: {
           data: {
-            title: '移动端模板'
+            title: '移动端模板',
+            injectVer: `<meta name="version-no" content="${versionNo}"/>`
           }
         },
         minify: true
