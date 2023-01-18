@@ -74,6 +74,9 @@ export default defineConfig(({ mode }) => {
         `
       })
     ],
+    optimizeDeps: {
+      exclude: ['vue-demi']
+    },
     build: {
       rollupOptions: {
         plugins: [visualizer()]
