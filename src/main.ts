@@ -6,15 +6,15 @@ import './assets/styles'
 import { createApp } from 'vue'
 
 import App from './App'
+import { useErrorHandler } from './hooks'
 import router from './router'
 import store from './store'
-import { errorHandler } from './utils'
 
 const app = createApp(App)
 
 app.use(router)
 app.use(store)
 
-app.config.errorHandler = errorHandler
+useErrorHandler(app)
 
 app.mount('#app')

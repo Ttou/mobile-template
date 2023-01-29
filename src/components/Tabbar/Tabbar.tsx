@@ -3,7 +3,7 @@ import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, reactive, toRefs, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { ROUTE } from '@/router'
+import { CONST_ROUTES } from '@/constants'
 
 import type { TabItem } from './TabbarTypes'
 
@@ -15,32 +15,32 @@ export default defineComponent({
       tabs: [
         {
           label: '首页',
-          name: ROUTE.INDEX.name,
-          path: ROUTE.INDEX.path,
+          name: CONST_ROUTES.INDEX.name,
+          path: CONST_ROUTES.INDEX.path,
           icon: 'ant-design:home-outlined'
         },
         {
           label: '分类',
-          name: ROUTE.CATEGORY.name,
-          path: ROUTE.CATEGORY.path,
+          name: CONST_ROUTES.CATEGORY.name,
+          path: CONST_ROUTES.CATEGORY.path,
           icon: 'ant-design:appstore-outlined'
         },
         {
           label: '商铺',
-          name: ROUTE.SHOP.name,
-          path: ROUTE.SHOP.path,
+          name: CONST_ROUTES.SHOP.name,
+          path: CONST_ROUTES.SHOP.path,
           icon: 'ant-design:shop-outlined'
         },
         {
           label: '购物车',
-          name: ROUTE.CART.name,
-          path: ROUTE.CART.path,
+          name: CONST_ROUTES.CART.name,
+          path: CONST_ROUTES.CART.path,
           icon: 'ant-design:shopping-outlined'
         },
         {
           label: '我的',
-          name: ROUTE.MY.name,
-          path: ROUTE.MY.path,
+          name: CONST_ROUTES.MY.name,
+          path: CONST_ROUTES.MY.path,
           icon: 'ant-design:user-outlined'
         }
       ]
@@ -50,11 +50,11 @@ export default defineComponent({
 
     const show = computed(() =>
       [
-        ROUTE.INDEX.name,
-        ROUTE.CATEGORY.name,
-        ROUTE.SHOP.name,
-        ROUTE.CART.name,
-        ROUTE.MY.name
+        CONST_ROUTES.INDEX.name,
+        CONST_ROUTES.CATEGORY.name,
+        CONST_ROUTES.SHOP.name,
+        CONST_ROUTES.CART.name,
+        CONST_ROUTES.MY.name
       ].includes(route.name as string)
     )
 

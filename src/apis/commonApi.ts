@@ -1,10 +1,10 @@
 import { ajax } from '@/utils'
 
-import type { GetInfoRes } from './commonTypes'
-
 export default {
-  /** 获取信息 */
-  getInfo(): Promise<GetInfoRes> {
+  /**
+   * 获取信息
+   */
+  getInfo(): Promise<IGetInfoRes> {
     return ajax.get('/demo/info')
   }
 }

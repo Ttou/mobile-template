@@ -22,6 +22,7 @@ module.exports = defineEslintConfig({
     'prettier/prettier': 'error',
     'vue/attribute-hyphenation': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-reserved-component-names': 'warn',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-explicit-any': 'off',

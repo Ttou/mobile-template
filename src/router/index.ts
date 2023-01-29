@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import { ROUTE } from './constants'
+import constRoutes from './constRoutes'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -11,39 +11,7 @@ const router = createRouter({
       behavior: 'smooth'
     }
   },
-  routes: [
-    {
-      ...ROUTE.INDEX,
-      component: () => import('@/views/index'),
-      meta: {}
-    },
-    {
-      ...ROUTE.CATEGORY,
-      component: () => import('@/views/category'),
-      meta: {}
-    },
-    {
-      ...ROUTE.SHOP,
-      component: () => import('@/views/shop'),
-      meta: {}
-    },
-    {
-      ...ROUTE.CART,
-      component: () => import('@/views/cart'),
-      meta: {}
-    },
-    {
-      ...ROUTE.MY,
-      component: () => import('@/views/my'),
-      meta: {}
-    },
-    {
-      path: '/:pathMatch(.*)*',
-      redirect: { path: ROUTE.INDEX.path }
-    }
-  ]
+  routes: constRoutes
 })
-
-export { ROUTE }
 
 export default router

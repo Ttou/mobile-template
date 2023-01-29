@@ -1,0 +1,1 @@
+import{d as e,C as _,G as n,H as o}from"./index-30ebb5f0.js";import{_ as s}from"./_plugin-vue_export-helper-c27b6911.js";const t=e({name:_.MY.name});const a={class:"page"};function c(d,p,r,i,m,f){return n(),o("div",a,"我的")}const x=s(t,[["render",c],["__scopeId","data-v-69c7e087"]]);export{x as default};

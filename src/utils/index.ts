@@ -1,2 +1,2 @@
 export * from './ajax'
-export * from './errorHandler'
+export * from './util'
