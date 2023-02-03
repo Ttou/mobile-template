@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 
 import { CONST_ROUTES } from '@/constants'
 
-import type { TabItem } from './TabbarTypes'
+import type { TabItem } from './Tabbar.constant'
 
 export default defineComponent({
   name: 'Tabbar',
