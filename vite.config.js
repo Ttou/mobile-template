@@ -3,12 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
-import { VantResolver } from 'unplugin-vue-components/resolvers'
-import components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint2'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import imp from 'vite-plugin-imp'
 import { viteMockServe } from 'vite-plugin-mock'
 import stylelint from 'vite-plugin-stylelint'
 import { viteVConsole } from 'vite-plugin-vconsole'
@@ -40,14 +39,6 @@ export default defineConfig(({ mode }) => {
         targets: browserslist
       }),
       compression(),
-      components({
-        dts: false,
-        resolvers: [
-          VantResolver({
-            importStyle: false
-          })
-        ]
-      }),
       createHtmlPlugin({
         inject: {
           data: {
@@ -57,8 +48,41 @@ export default defineConfig(({ mode }) => {
         },
         minify: true
       }),
-      eslint(),
-      stylelint(),
+      eslint({
+        lintInWorker: true
+      }),
+      stylelint({
+        lintInWorker: true
+      }),
+      imp({
+        libList: [
+          {
+            libName: 'vant',
+            replaceOldImport: false,
+            style: name => {
+              switch (name) {
+                case 'show-loading-toast':
+                case 'show-success-toast':
+                case 'show-fail-toast':
+                  name = 'toast'
+                  break
+                case 'show-notify':
+                case 'close-notify':
+                  name = 'notify'
+                  break
+                case 'show-dialog':
+                case 'show-confirm-dialog':
+                  name = 'dialog'
+                  break
+                default:
+                  break
+              }
+
+              return `vant/es/${name}/style/index`
+            }
+          }
+        ]
+      }),
       viteVConsole({
         entry: resolve('src/main.ts'),
         enabled: true,

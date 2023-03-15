@@ -1,6 +1,6 @@
-import { ConfigProviderProps } from 'vant'
+import type { ConfigProviderProps } from 'vant'
 
-export function useConfig(): ConfigProviderProps {
+export function useVantConfig(): ConfigProviderProps {
   const themeVars = {
     buttonPrimaryBackground: '#07c160',
     buttonPrimaryBorderColor: '#07c160'

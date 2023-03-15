@@ -1,5 +1,3 @@
-// tsx 下必须全局引入样式
-import 'vant/lib/index.css'
 import './assets/icons'
 import './assets/styles'
 

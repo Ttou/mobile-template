@@ -2,12 +2,12 @@ import { ConfigProvider } from 'vant'
 import { defineComponent } from 'vue'
 
 import { Page, Tabbar } from './components'
-import { useConfig } from './hooks'
+import { useVantConfig } from './hooks'
 
 export default defineComponent({
   name: 'App',
   setup() {
-    const config = useConfig()
+    const config = useVantConfig()
 
     return {
       config
