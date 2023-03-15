@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint2'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -17,8 +17,10 @@ import { browserslist } from './package.json'
 const versionNo = new Date().getTime()
 
 export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, '.')
+
   return {
-    base: mode === 'development' ? '/' : '/mobile-template/',
+    base: mode === 'development' ? '/' : `/${env.VITE_APP_NAME}/`,
     css: {
       modules: {
         generateScopedName: '[local]__[hash:base64:5]'

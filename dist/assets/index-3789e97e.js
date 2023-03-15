@@ -1,1 +1,0 @@
-import{d as e,C as _,G as n,H as o}from"./index-30ebb5f0.js";import{_ as s}from"./_plugin-vue_export-helper-c27b6911.js";const t=e({name:_.CART.name});const a={class:"page"};function c(d,p,r,i,f,m){return n(),o("div",a,"购物车")}const x=s(t,[["render",c],["__scopeId","data-v-1ca52f66"]]);export{x as default};

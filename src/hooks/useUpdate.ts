@@ -41,7 +41,7 @@ export function useUpdate() {
   async function getNewVersion() {
     const timestamp = new Date().getTime()
     const response = await axios.get(
-      `${window.location.origin}/mobile-template`,
+      `${window.location.origin}/${import.meta.env.VITE_APP_NAME}`,
       {
         params: { timestamp }
       }

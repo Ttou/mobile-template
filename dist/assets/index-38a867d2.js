@@ -1,0 +1,1 @@
+import{d as e,B as _,H as n,J as o}from"./index-1fd9af35.js";import{_ as s}from"./_plugin-vue_export-helper-c27b6911.js";const t=e({name:_.CATEGORY.name});const a={class:"page"};function c(d,p,r,i,m,f){return n(),o("div",a,"分类")}const x=s(t,[["render",c],["__scopeId","data-v-cb8721b7"]]);export{x as default};
