@@ -1,6 +1,8 @@
+import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
@@ -24,6 +26,14 @@ export default defineConfig(({ mode }) => {
     css: {
       modules: {
         generateScopedName: '[local]__[hash:base64:5]'
+      },
+      postcss: {
+        plugins: [
+          autoprefixer(),
+          postcssPxToViewport({
+            viewportWidth: 375
+          })
+        ]
       }
     },
     resolve: {
