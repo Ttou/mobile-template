@@ -4,23 +4,23 @@
     <div class="section">
       <h3>Store</h3>
       <p>{{ count }}</p>
-      <Button type="primary" @click="handleClick">点击</Button>
+      <van-button type="primary" @click="handleClick">点击</van-button>
     </div>
     <div class="section">
       <h3>弹出层</h3>
-      <Button type="primary" @click="handleShow">点击</Button>
+      <van-button type="primary" @click="handleShow">点击</van-button>
     </div>
     <div class="section">
       <h3>自定义图标</h3>
-      <Space>
+      <van-space>
         <Icon icon="custom:coffee" />
         <Icon icon="custom:chips" />
         <Icon icon="custom:ice-cream" />
         <Icon icon="custom:coke" />
         <Icon icon="custom:hamburg" />
-      </Space>
+      </van-space>
     </div>
-    <Popup
+    <van-popup
       ref="popupRef"
       v-model:show="show"
       class="popup"
@@ -31,7 +31,7 @@
       <template #default>
         <div class="popup__content">哈哈</div>
       </template>
-    </Popup>
+    </van-popup>
   </div>
 </template>
 
@@ -48,9 +48,9 @@ export default defineComponent({
   name: CONST_ROUTES.INDEX.name,
   components: {
     Icon,
-    Button,
-    Popup,
-    Space
+    [Button.name]: Button,
+    [Popup.name]: Popup,
+    [Space.name]: Space
   },
   setup() {
     const countHook = useCount()
