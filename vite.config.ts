@@ -18,6 +18,7 @@ import { browserslist } from './package.json'
 
 const versionNo = new Date().getTime()
 
+// @ts-ignore
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.')
 
