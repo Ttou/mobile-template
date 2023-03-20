@@ -1,0 +1,1 @@
+import{d as e,B as _,_ as n,H as s,J as t}from"./index-cdd7981d.js";const o=e({name:_.CATEGORY.name});const a={class:"page"};function c(d,p,r,i,u,f){return s(),t("div",a,"分类")}const m=n(o,[["render",c],["__scopeId","data-v-cb8721b7"]]);export{m as default};

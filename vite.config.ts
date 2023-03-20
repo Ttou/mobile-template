@@ -1,7 +1,6 @@
 import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
@@ -44,10 +43,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue(),
-      vueJsx({
-        transformOn: true,
-        enableObjectSlots: false
-      }),
       legacy({
         targets: browserslist
       }),
