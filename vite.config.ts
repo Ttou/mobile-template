@@ -77,15 +77,11 @@ export default defineConfig(({ mode }) => {
                 case 'show-loading-toast':
                 case 'show-success-toast':
                 case 'show-fail-toast':
-                  name = 'toast'
-                  break
                 case 'show-notify':
                 case 'close-notify':
-                  name = 'notify'
-                  break
                 case 'show-dialog':
                 case 'show-confirm-dialog':
-                  name = 'dialog'
+                  return false
                   break
                 default:
                   break

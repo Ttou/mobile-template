@@ -4,7 +4,7 @@ import './assets/styles'
 import { createApp } from 'vue'
 
 import App from './App'
-import { useErrorHandler } from './hooks'
+import { useErrorHandler, useVant } from './hooks'
 import router from './router'
 import store from './store'
 
@@ -14,5 +14,6 @@ app.use(router)
 app.use(store)
 
 useErrorHandler(app)
+useVant(app)
 
 app.mount('#app')
