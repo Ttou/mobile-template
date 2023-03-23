@@ -63,10 +63,6 @@ export default defineConfig(({ mode }) => {
         targets: browserslist
       }),
       compression(),
-      processIndexHtml({
-        injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
-        injectTitle: `<title>${env.VITE_APP_TITLE}</title>`
-      }),
       eslint({
         lintInWorker: true
       }),
@@ -97,6 +93,10 @@ export default defineConfig(({ mode }) => {
             }
           }
         ]
+      }),
+      processIndexHtml({
+        injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
+        injectTitle: `<title>${env.VITE_APP_TITLE}</title>`
       }),
       viteVConsole({
         entry: resolve('src/main.ts'),
