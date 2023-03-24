@@ -2,10 +2,9 @@ import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
-import ejs from 'ejs'
 import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
-import { defineConfig, loadEnv, PluginOption } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint2'
 import imp from 'vite-plugin-imp'
@@ -14,24 +13,7 @@ import stylelint from 'vite-plugin-stylelint'
 import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
-
-/**
- * index.html 处理插件
- * @param options 写法参照 ejs 文档
- * @see https://ejs.co/#docs
- */
-function processIndexHtml(options: Record<string, any>): PluginOption {
-  return {
-    name: 'self:processHtml',
-    enforce: 'pre',
-    transformIndexHtml: {
-      order: 'pre',
-      handler(html) {
-        return ejs.render(html, { ...options }, { root: __dirname })
-      }
-    }
-  }
-}
+import { customHtml } from './vite-plugin-html'
 
 // @ts-ignore
 export default defineConfig(({ mode }) => {
@@ -94,7 +76,7 @@ export default defineConfig(({ mode }) => {
           }
         ]
       }),
-      processIndexHtml({
+      customHtml({
         injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
         injectTitle: `<title>${env.VITE_APP_TITLE}</title>`
       }),
