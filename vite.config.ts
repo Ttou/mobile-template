@@ -1,8 +1,9 @@
+import { resolve } from 'node:path'
+
 import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
-import { resolve } from 'path'
 import visualizer from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
@@ -99,12 +100,15 @@ export default defineConfig(({ mode }) => {
       exclude: ['vue-demi']
     },
     build: {
+      cssTarget: ['chrome61'],
+      chunkSizeWarningLimit: 1024,
       rollupOptions: {
         plugins: [visualizer()]
       }
     },
     server: {
       host: true,
+      open: true,
       port: 8080
     }
   }
