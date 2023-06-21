@@ -4,5 +4,9 @@
   },
   "css.validate": false,
   "less.validate": false,
-  "stylelint.enable": true
+  "stylelint.enable": true,
+  "cSpell.words": [
+    "Tabbar",
+    "Vant"
+  ]
 }

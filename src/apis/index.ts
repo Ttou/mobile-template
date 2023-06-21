@@ -1,1 +1,1 @@
-export { default as commonApi } from './commonApi'
+export * from './modules/common'

@@ -16,7 +16,6 @@ import { viteVConsole } from 'vite-plugin-vconsole'
 import { browserslist } from './package.json'
 import { customHtml } from './vite-plugin-html'
 
-// @ts-ignore
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.')
 
@@ -36,9 +35,20 @@ export default defineConfig(({ mode }) => {
       }
     },
     resolve: {
-      alias: {
-        '@/': `${resolve(__dirname, 'src')}/`
-      }
+      alias: [
+        {
+          find: '@/',
+          replacement: `${resolve(__dirname, 'src')}/`
+        },
+        ...(mode === 'production'
+          ? [
+              {
+                find: 'vue-types',
+                replacement: 'vue-types/shim'
+              }
+            ]
+          : [])
+      ]
     },
     plugins: [
       vue(),
@@ -97,13 +107,22 @@ export default defineConfig(({ mode }) => {
       })
     ],
     optimizeDeps: {
+      include: ['lodash-unified'],
       exclude: ['vue-demi']
     },
     build: {
       cssTarget: ['chrome61'],
       chunkSizeWarningLimit: 1024,
+      reportCompressedSize: false,
       rollupOptions: {
-        plugins: [visualizer()]
+        plugins: [visualizer()],
+        output: {
+          manualChunks(id) {
+            if (/[\\/]node_modules[\\/]/.test(id)) {
+              return 'chunk-libs'
+            }
+          }
+        }
       }
     },
     server: {
