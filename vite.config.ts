@@ -5,10 +5,11 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
 import visualizer from 'rollup-plugin-visualizer'
+import { VantResolver } from 'unplugin-vue-components/resolvers'
+import components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint2'
-import imp from 'vite-plugin-imp'
 import { viteMockServe } from 'vite-plugin-mock'
 import stylelint from 'vite-plugin-stylelint'
 import { viteVConsole } from 'vite-plugin-vconsole'
@@ -54,30 +55,9 @@ export default defineConfig(({ mode }) => {
       stylelint({
         lintInWorker: true
       }),
-      imp({
-        libList: [
-          {
-            libName: 'vant',
-            replaceOldImport: false,
-            style: name => {
-              switch (name) {
-                case 'show-loading-toast':
-                case 'show-success-toast':
-                case 'show-fail-toast':
-                case 'show-notify':
-                case 'close-notify':
-                case 'show-dialog':
-                case 'show-confirm-dialog':
-                  return false
-                  break
-                default:
-                  break
-              }
-
-              return `vant/es/${name}/style/index`
-            }
-          }
-        ]
+      components({
+        dts: false,
+        resolvers: [VantResolver()]
       }),
       customHtml({
         injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,

@@ -1,12 +1,11 @@
 <template>
-  <ConfigProvider v-bind="config">
+  <van-config-provider v-bind="config">
     <Page />
     <Tabbar />
-  </ConfigProvider>
+  </van-config-provider>
 </template>
 
 <script lang="ts">
-import { ConfigProvider } from 'vant'
 import { defineComponent } from 'vue'
 
 import { Page, Tabbar } from './components'
@@ -16,8 +15,7 @@ export default defineComponent({
   name: 'App',
   components: {
     Page,
-    Tabbar,
-    ConfigProvider
+    Tabbar
   },
   setup() {
     const config = useVantConfig()

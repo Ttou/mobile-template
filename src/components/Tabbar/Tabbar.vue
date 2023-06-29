@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue'
-import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, reactive, toRefs, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -27,9 +26,7 @@ import type { TabItem } from './Tabbar.constant'
 export default defineComponent({
   name: 'Tabbar',
   components: {
-    Icon,
-    [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem
+    Icon
   },
   setup() {
     const state = reactive({

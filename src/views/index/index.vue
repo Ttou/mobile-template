@@ -37,7 +37,6 @@
 
 <script lang="ts">
 import { Icon } from '@iconify/vue'
-import { Button, Popup, Space } from 'vant'
 import { defineComponent } from 'vue'
 
 import { CONST_ROUTES } from '@/constants'
@@ -47,10 +46,7 @@ import { useCount, useInit, usePopup } from './hooks'
 export default defineComponent({
   name: CONST_ROUTES.INDEX.name,
   components: {
-    Icon,
-    [Button.name]: Button,
-    [Popup.name]: Popup,
-    [Space.name]: Space
+    Icon
   },
   setup() {
     const countHook = useCount()
