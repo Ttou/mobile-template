@@ -12,7 +12,6 @@ import { compression } from 'vite-plugin-compression2'
 import eslint from 'vite-plugin-eslint2'
 import { viteMockServe } from 'vite-plugin-mock'
 import stylelint from 'vite-plugin-stylelint'
-import { viteVConsole } from 'vite-plugin-vconsole'
 
 import { browserslist } from './package.json'
 import { customHtml } from './vite-plugin-html'
@@ -61,12 +60,11 @@ export default defineConfig(({ mode }) => {
       }),
       customHtml({
         injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
-        injectTitle: `<title>${env.VITE_APP_TITLE}</title>`
-      }),
-      viteVConsole({
-        entry: resolve('src/main.ts'),
-        enabled: true,
-        localEnabled: true
+        injectTitle: `<title>${env.VITE_APP_TITLE}</title>`,
+        injectVConsole: `
+          <script type="text/javascript" src="/vconsole.min.js"></script>
+          <script type="text/javascript" src="/vconsole.config.js"></script>
+        `
       }),
       viteMockServe({
         mockPath: 'mock',
