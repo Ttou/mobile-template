@@ -6,8 +6,8 @@
     "useDefineForClassFields": true,
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
+    /* Node mode */
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
