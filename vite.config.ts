@@ -4,7 +4,7 @@ import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
-import visualizer from 'rollup-plugin-visualizer'
+import { visualizer } from 'rollup-plugin-visualizer'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
@@ -87,6 +87,9 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         plugins: [visualizer()],
         output: {
+          chunkFileNames: 'js/[name]-[hash].js',
+          entryFileNames: 'js/[name]-[hash].js',
+          assetFileNames: '[ext]/[name]-[hash].[ext]',
           manualChunks(id) {
             if (/[\\/]node_modules[\\/]/.test(id)) {
               return 'chunk-libs'
@@ -96,6 +99,11 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
+      host: true,
+      open: true,
+      port: 8080
+    },
+    preview: {
       host: true,
       open: true,
       port: 8080
