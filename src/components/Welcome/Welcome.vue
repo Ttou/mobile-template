@@ -16,6 +16,6 @@ export default defineComponent({
 <style scoped>
 .welcome {
   font-size: 36px;
-  color: #333;
+  color: #8f8f94;
 }
 </style>
