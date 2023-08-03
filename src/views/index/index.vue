@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h2>{{ title }}</h2>
+    <Welcome :msg="title" />
     <div class="section">
       <h3>Store</h3>
       <p>{{ count }}</p>
@@ -39,6 +39,7 @@
 import { Icon } from '@iconify/vue'
 import { defineComponent } from 'vue'
 
+import { Welcome } from '@/components'
 import { CONST_ROUTES } from '@/constants'
 
 import { useCount, useInit, usePopup } from './hooks'
@@ -46,7 +47,8 @@ import { useCount, useInit, usePopup } from './hooks'
 export default defineComponent({
   name: CONST_ROUTES.INDEX.name,
   components: {
-    Icon
+    Icon,
+    Welcome
   },
   setup() {
     const countHook = useCount()

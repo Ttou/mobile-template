@@ -21,7 +21,7 @@ import { useRoute } from 'vue-router'
 
 import { CONST_ROUTES } from '@/constants'
 
-import type { TabItem } from './Tabbar.constant'
+import type { TabItem } from './Tabbar.type'
 
 export default defineComponent({
   name: 'Tabbar',
@@ -98,3 +98,4 @@ export default defineComponent({
   }
 })
 </script>
+./Tabbar.type
