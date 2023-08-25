@@ -13,7 +13,7 @@
     "lint:script": "eslint \"./src/**/*.{ts,vue}\" --fix",
     "lint:style": "stylelint \"./src/**/*.{css,scss,vue}\" --fix",
     "commit": "git add . && git cz",
-    "postinstall": "npx simple-git-hooks"
+    "postinstall": "pnpx simple-git-hooks"
   },
   "dependencies": {
     "@iconify/vue": "^4.1.1",
