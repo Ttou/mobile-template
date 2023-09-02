@@ -14,6 +14,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import stylelint from 'vite-plugin-stylelint'
 
 import { browserslist } from './package.json'
+import { optimizeVant } from './vite-optimize-vant'
 import { customHtml } from './vite-plugin-html'
 
 export default defineConfig(({ mode }) => {
@@ -64,12 +65,13 @@ export default defineConfig(({ mode }) => {
       }),
       components({
         dts: false,
+        dirs: [],
         resolvers: [VantResolver()]
       }),
       customHtml({
         injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
         injectTitle: `<title>${env.VITE_APP_TITLE}</title>`,
-        injectVConsole: `
+        injectScript: `
           <script type="text/javascript" src="/vconsole.min.js"></script>
           <script type="text/javascript" src="/vconsole.config.js"></script>
         `
@@ -85,7 +87,7 @@ export default defineConfig(({ mode }) => {
       })
     ],
     optimizeDeps: {
-      include: ['lodash-unified'],
+      include: ['dayjs/locale/zh-cn', ...optimizeVant],
       exclude: ['vue-demi']
     },
     build: {
