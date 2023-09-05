@@ -1,9 +1,9 @@
 import { resolve } from 'node:path'
 
-import postcssPxToViewport from '@ttou/postcss-px-to-viewport'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
+import postcssMobileForever from 'postcss-mobile-forever'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
@@ -29,8 +29,15 @@ export default defineConfig(({ mode }) => {
       postcss: {
         plugins: [
           autoprefixer(),
-          postcssPxToViewport({
-            viewportWidth: 375
+          postcssMobileForever({
+            appSelector: '#app',
+            unitPrecision: Number(env.VITE_APP_DESIGN_UNIT_PRECISION),
+            viewportWidth: Number(env.VITE_APP_DESIGN_WIDTH),
+            desktopWidth: 600,
+            landscapeWidth: 450,
+            border: true,
+            enableMediaQuery: true,
+            rootContainingBlockSelectorList: ['van-tabbar']
           })
         ]
       }
