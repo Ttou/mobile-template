@@ -73,7 +73,11 @@ export default defineConfig(({ mode }) => {
       components({
         dts: false,
         dirs: [],
-        resolvers: [VantResolver()]
+        resolvers: [
+          VantResolver({
+            importStyle: false
+          })
+        ]
       }),
       customHtml({
         injectVer: `<meta name="version-no" content="${new Date().getTime()}"/>`,
