@@ -4,6 +4,7 @@ import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
 import postcssMobileForever from 'postcss-mobile-forever'
+import postcssNested from 'postcss-nested'
 import { visualizer } from 'rollup-plugin-visualizer'
 import imagemin from 'unplugin-imagemin/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
@@ -39,7 +40,8 @@ export default defineConfig(({ mode }) => {
             border: true,
             enableMediaQuery: true,
             rootContainingBlockSelectorList: ['van-tabbar']
-          })
+          }),
+          postcssNested({ preserveEmpty: true })
         ]
       }
     },
