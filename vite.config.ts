@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
 import postcssMobileForever from 'postcss-mobile-forever'
 import { visualizer } from 'rollup-plugin-visualizer'
+import imagemin from 'unplugin-imagemin/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
@@ -64,12 +65,6 @@ export default defineConfig(({ mode }) => {
         targets: browserslist
       }),
       compression(),
-      eslint({
-        lintInWorker: true
-      }),
-      stylelint({
-        lintInWorker: true
-      }),
       components({
         dts: false,
         dirs: [],
@@ -95,7 +90,20 @@ export default defineConfig(({ mode }) => {
           import { setupProdMockServer } from './mockProdServer'
           setupProdMockServer()
         `
-      })
+      }),
+      eslint({
+        lintInWorker: true
+      }),
+      stylelint({
+        lintInWorker: true
+      }),
+      ...(mode === 'production'
+        ? [
+            imagemin({
+              mode: 'sharp'
+            })
+          ]
+        : [])
     ],
     optimizeDeps: {
       include: ['dayjs/locale/zh-cn', ...optimizeVant],
