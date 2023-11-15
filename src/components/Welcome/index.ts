@@ -1,2 +1,2 @@
-export type * from './Welcome.type'
+export * from './Welcome'
 export { default as Welcome } from './Welcome.vue'

@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import { welcomeProps } from './Welcome.constant'
+import { welcomeProps } from './Welcome'
 
 export default defineComponent({
   name: 'Welcome',

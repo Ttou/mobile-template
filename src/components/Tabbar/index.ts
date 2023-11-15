@@ -1,2 +1,2 @@
-export type * from './Tabbar.type'
+export * from './Tabbar'
 export { default as Tabbar } from './Tabbar.vue'
