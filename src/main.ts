@@ -4,16 +4,23 @@ import './assets/styles'
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import { useErrorHandler, useVant } from './hooks'
+import { useErrorHandler, useMock, useVant } from './hooks'
 import router from './router'
 import store from './store'
+import { ajax } from './utils'
 
-const app = createApp(App)
+async function bootstrap() {
+  const app = createApp(App)
 
-app.use(router)
-app.use(store)
+  app.use(router)
+  app.use(store)
 
-useErrorHandler(app)
-useVant(app)
+  useErrorHandler(app)
+  useVant(app)
+  useMock(ajax)
 
-app.mount('#app')
+  await router.isReady()
+
+  app.mount('#app')
+}
+bootstrap()

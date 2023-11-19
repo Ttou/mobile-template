@@ -1,1 +1,0 @@
-import{C as e,_ as o}from"./index-26xy7CDL.js";import{d as s,o as t,m as a}from"./chunk-libs-3JLNS8k2.js";const n=s({name:e.CATEGORY.name}),c={class:"page"};function r(_,d,p,m,i,f){return t(),a("div",c,"分类")}const C=o(n,[["render",r],["__scopeId","data-v-c87d25ec"]]);export{C as default};
