@@ -1,21 +1,5 @@
-<template>
-  <van-tabbar
-    v-show="show"
-    v-model="activeTab"
-    activeColor="#F759AB"
-    inactiveColor="#BFBFBF"
-  >
-    <van-tabbar-item v-for="item in tabs" :key="item.name" :to="item.path">
-      <template #icon>
-        <Icon :icon="item.icon" />
-      </template>
-      <span>{{ item.label }}</span>
-    </van-tabbar-item>
-  </van-tabbar>
-</template>
-
-<script lang="ts">
 import { Icon } from '@iconify/vue'
+import { Tabbar, TabbarItem } from 'vant'
 import { computed, defineComponent, reactive, toRefs, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -25,9 +9,6 @@ import type { TabItem } from './Tabbar.define'
 
 export default defineComponent({
   name: 'Tabbar',
-  components: {
-    Icon
-  },
   setup() {
     const state = reactive({
       activeTab: 0,
@@ -95,6 +76,24 @@ export default defineComponent({
       ...toRefs(state),
       show
     }
+  },
+  render() {
+    return (
+      <Tabbar
+        v-show={this.show}
+        v-model={this.activeTab}
+        activeColor="#F759AB"
+        inactiveColor="#BFBFBF"
+      >
+        {this.tabs.map(item => (
+          <TabbarItem key={item.name} to={item.path}>
+            {{
+              icon: () => <Icon icon={item.icon} />,
+              default: () => <span>{item.label}</span>
+            }}
+          </TabbarItem>
+        ))}
+      </Tabbar>
+    )
   }
 })
-</script>

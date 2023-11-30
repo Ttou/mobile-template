@@ -6,7 +6,16 @@
   "less.validate": false,
   "stylelint.enable": true,
   "cSpell.words": [
+    "demi",
+    "iconify",
+    "mockjs",
+    "pinia",
+    "preinstall",
     "Tabbar",
-    "Vant"
-  ]
+    "unplugin",
+    "Vant",
+    "vconsole",
+    "vueuse"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
