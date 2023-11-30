@@ -1,9 +1,17 @@
 import { Icon } from '@iconify/vue'
 import { Tabbar, TabbarItem } from 'vant'
-import { computed, defineComponent, reactive, toRefs, watch } from 'vue'
+import {
+  computed,
+  defineComponent,
+  reactive,
+  toRefs,
+  Transition,
+  watch
+} from 'vue'
 import { useRoute } from 'vue-router'
 
 import { CONST_ROUTES } from '@/constants'
+import { useStyle } from '@/hooks'
 
 import type { TabItem } from './Tabbar.define'
 
@@ -47,6 +55,7 @@ export default defineComponent({
     })
 
     const route = useRoute()
+    const { Transition } = useStyle()
 
     const show = computed(() =>
       [
@@ -74,26 +83,29 @@ export default defineComponent({
 
     return {
       ...toRefs(state),
+      transitionName: Transition.slideUp,
       show
     }
   },
   render() {
     return (
-      <Tabbar
-        v-show={this.show}
-        v-model={this.activeTab}
-        activeColor="#F759AB"
-        inactiveColor="#BFBFBF"
-      >
-        {this.tabs.map(item => (
-          <TabbarItem key={item.name} to={item.path}>
-            {{
-              icon: () => <Icon icon={item.icon} />,
-              default: () => <span>{item.label}</span>
-            }}
-          </TabbarItem>
-        ))}
-      </Tabbar>
+      <Transition name={this.transitionName}>
+        <Tabbar
+          v-show={this.show}
+          v-model={this.activeTab}
+          activeColor="#F759AB"
+          inactiveColor="#BFBFBF"
+        >
+          {this.tabs.map(item => (
+            <TabbarItem key={item.name} to={item.path}>
+              {{
+                icon: () => <Icon icon={item.icon} />,
+                default: () => <span>{item.label}</span>
+              }}
+            </TabbarItem>
+          ))}
+        </Tabbar>
+      </Transition>
     )
   }
 })

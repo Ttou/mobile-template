@@ -43,7 +43,7 @@ export function useStyle() {
   /**
    * 动画
    */
-  enum TransitionName {
+  enum Transition {
     /**
      * 淡入
      */
@@ -70,6 +70,6 @@ export function useStyle() {
     ellipsis,
     multiEllipsis,
     Hairline,
-    TransitionName
+    Transition
   }
 }

@@ -29,6 +29,12 @@ export default [
     meta: {}
   },
   {
+    path: '/other',
+    name: 'OtherView',
+    component: () => import('@/views/other/index.vue'),
+    meta: {}
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: { path: CONST_ROUTES.INDEX.path }
   }

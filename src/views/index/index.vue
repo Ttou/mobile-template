@@ -11,6 +11,10 @@
       <van-button type="primary" @click="handleShow">点击</van-button>
     </div>
     <div class="section">
+      <h3>跳转页面</h3>
+      <van-button type="primary" @click="handleJumpOther">跳转</van-button>
+    </div>
+    <div class="section">
       <h3>自定义图标</h3>
       <van-space>
         <Icon icon="custom:coffee" />
@@ -42,7 +46,7 @@ import { defineComponent } from 'vue'
 import { Welcome } from '@/components'
 import { CONST_ROUTES } from '@/constants'
 
-import { useCount, useInit, usePopup } from './hooks'
+import { useCount, useInit, useOther, usePopup } from './hooks'
 
 export default defineComponent({
   name: CONST_ROUTES.INDEX.name,
@@ -54,11 +58,13 @@ export default defineComponent({
     const countHook = useCount()
     const initHook = useInit()
     const popupHook = usePopup()
+    const otherHook = useOther()
 
     return {
       ...countHook,
       ...initHook,
-      ...popupHook
+      ...popupHook,
+      ...otherHook
     }
   }
 })
