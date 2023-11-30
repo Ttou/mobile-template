@@ -33,10 +33,11 @@ export default defineConfig(({ mode }) => {
             appSelector: '#app',
             unitPrecision: Number(env.VITE_APP_DESIGN_UNIT_PRECISION),
             viewportWidth: Number(env.VITE_APP_DESIGN_WIDTH),
-            desktopWidth: 600,
+            maxDisplayWidth: 600,
             landscapeWidth: 450,
             border: true,
-            enableMediaQuery: true,
+            disableDesktop: true,
+            disableLandscape: true,
             rootContainingBlockSelectorList: ['van-tabbar']
           }),
           postcssNested({ preserveEmpty: true })

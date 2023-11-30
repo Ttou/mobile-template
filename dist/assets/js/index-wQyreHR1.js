@@ -1,0 +1,1 @@
+import{C as e,_ as o}from"./index-h-rOXfgw.js";import{d as a,m as s,G as t}from"./chunk-libs-efYhBp4P.js";const n=a({name:e.SHOP.name}),c={class:"page"};function r(_,p,d,m,i,f){return s(),t("div",c,"商铺")}const x=o(n,[["render",r],["__scopeId","data-v-b560a576"]]);export{x as default};

@@ -53,3 +53,4 @@ npm run build
 ## 待处理
 
 - vite-plugin-compression2 不支持 vite >= 5.0.0
+- tsx + css-modules 不支持媒体查询 [issue](https://github.com/vitejs/vite-plugin-vue/issues/200)
