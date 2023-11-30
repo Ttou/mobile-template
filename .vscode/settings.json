@@ -4,7 +4,7 @@
   },
   "css.validate": false,
   "less.validate": false,
-  "stylelint.enable": true,
+  "scss.validate": false,
   "cSpell.words": [
     "demi",
     "iconify",
