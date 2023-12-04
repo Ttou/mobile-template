@@ -1,15 +1,10 @@
-import type { ConfigProviderProps, ConfigProviderThemeVars } from 'vant'
+import type { ConfigProviderProps } from 'vant'
 
 export function useVantConfig(): ConfigProviderProps {
-  const themeVars: ConfigProviderThemeVars = {
-    buttonPrimaryBackground: '#07c160',
-    buttonPrimaryBorderColor: '#07c160'
-  }
-
   return {
     tag: 'div',
     theme: 'light',
-    themeVars,
+    themeVarsScope: 'global',
     iconPrefix: 'van-icon'
   }
 }

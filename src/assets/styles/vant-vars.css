@@ -1,0 +1,7 @@
+@import 'vant/lib/index.css';
+
+/* 修改css变量 */
+:root:root {
+  --van-button-primary-background: #235bda;
+  --van-button-primary-border: #235bda;
+}

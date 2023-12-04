@@ -19,6 +19,7 @@ module.exports = defineStylelintConfig({
     'selector-pseudo-element-no-unknown': [
       true,
       { ignorePseudoElements: ['v-deep', 'input-placeholder'] }
-    ]
+    ],
+    'import-notation': null
   }
 })
