@@ -49,7 +49,6 @@ npm run build
 - 项目开发时请锁定依赖版本
 - 大项目可以不用对 vant 启用按需加载，直接全部引入
 - 所有路由均为一级，不使用嵌套写法
-- 为了支持 typescript-plugin-css-modules 插件，需要使用项目的 TypeScript
 
 ## 待处理
 

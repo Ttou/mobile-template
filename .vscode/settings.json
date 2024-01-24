@@ -5,6 +5,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
+  "stylelint.enable": true,
   "cSpell.words": [
     "demi",
     "iconify",
@@ -16,7 +17,5 @@
     "Vant",
     "vconsole",
     "vueuse"
-  ],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  ]
 }

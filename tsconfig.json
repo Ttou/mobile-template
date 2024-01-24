@@ -28,12 +28,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"],
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
+    "types": ["vite/client"]
   },
   "include": ["src", "types"],
   "exclude": ["node_modules"],
