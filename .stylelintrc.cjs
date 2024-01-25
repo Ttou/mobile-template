@@ -2,6 +2,7 @@ const { defineStylelintConfig } = require('@ttou/define-config')
 
 module.exports = defineStylelintConfig({
   extends: ['stylelint-config-standard'],
+  plugins: ['stylelint-prettier'],
   overrides: [
     {
       files: ['**/*.vue'],
@@ -9,6 +10,7 @@ module.exports = defineStylelintConfig({
     }
   ],
   rules: {
+    'prettier/prettier': true,
     'block-no-empty': null,
     'property-no-unknown': [true, { ignoreProperties: ['/composes/'] }],
     'function-no-unknown': [true, { ignoreFunctions: ['/constant/'] }],
