@@ -7,4 +7,6 @@ export const welcomeProps = () => ({
   msg: string().isRequired
 })
 
-export type WelcomeProps = ReturnType<typeof welcomeProps>
+export type WelcomeProps = Partial<
+  ExtractPropTypes<ReturnType<typeof welcomeProps>>
+>
