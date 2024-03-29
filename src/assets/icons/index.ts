@@ -12,7 +12,7 @@ async function setupIcon() {
   const iconNames = [] as string[]
 
   Object.keys(files).forEach(key => {
-    const icon = JSON.parse(files[key])
+    const icon = JSON.parse(files[key] as string)
 
     icons[icon.key] = icon.value
     iconNames.push(`custom:${icon.key}`)
