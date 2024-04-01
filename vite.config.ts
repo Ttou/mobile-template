@@ -7,13 +7,11 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import autoprefixer from 'autoprefixer'
 import postcssMobileForever from 'postcss-mobile-forever'
 import postcssNested from 'postcss-nested'
-import { visualizer } from 'rollup-plugin-visualizer'
 import imagemin from 'unplugin-imagemin/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
-import eslint from 'vite-plugin-eslint2'
-import stylelint from 'vite-plugin-stylelint'
+import { compression as compression2 } from 'vite-plugin-compression2'
 
 import { browserslist } from './package.json'
 
@@ -83,19 +81,13 @@ export default defineConfig(({ mode }) => {
           <script type="text/javascript" src="/vconsole.config.js"></script>
         `
       }),
-      eslint({
-        lintInWorker: true
+      compression2({
+        exclude: [/\.(svg)$/]
       }),
-      stylelint({
-        lintInWorker: true
-      }),
-      ...(mode === 'production'
-        ? [
-            imagemin({
-              mode: 'sharp'
-            })
-          ]
-        : [])
+      imagemin({
+        mode: 'sharp',
+        beforeBundle: true
+      })
     ],
     optimizeDeps: {
       include: ['dayjs/locale/zh-cn'],
@@ -106,7 +98,6 @@ export default defineConfig(({ mode }) => {
       chunkSizeWarningLimit: 1024,
       reportCompressedSize: false,
       rollupOptions: {
-        plugins: [visualizer()],
         output: {
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',
