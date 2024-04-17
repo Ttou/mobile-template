@@ -11,6 +11,7 @@ import imagemin from 'unplugin-imagemin/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
+import { analyzer } from 'vite-bundle-analyzer'
 import { compression as compression2 } from 'vite-plugin-compression2'
 
 import { browserslist } from './package.json'
@@ -87,7 +88,8 @@ export default defineConfig(({ mode }) => {
       imagemin({
         mode: 'sharp',
         beforeBundle: true
-      })
+      }),
+      ...(mode === 'analyzer' ? [analyzer()] : [])
     ],
     optimizeDeps: {
       include: ['dayjs/locale/zh-cn'],
