@@ -15,6 +15,10 @@
       <van-button type="primary" @click="handleJumpOther">跳转</van-button>
     </div>
     <div class="section">
+      <h3>主题切换</h3>
+      <van-button type="primary" @click="toggleDark()">点击</van-button>
+    </div>
+    <div class="section">
       <h3>自定义图标</h3>
       <van-space>
         <Icon icon="custom:coffee" />
@@ -45,6 +49,7 @@ import { defineComponent } from 'vue'
 
 import { Welcome } from '@/components'
 import { CONST_ROUTES } from '@/constants'
+import { useTheme } from '@/hooks'
 
 import { useCount, useInit, useOther, usePopup } from './hooks'
 
@@ -59,12 +64,14 @@ export default defineComponent({
     const initHook = useInit()
     const popupHook = usePopup()
     const otherHook = useOther()
+    const themeHook = useTheme()
 
     return {
       ...countHook,
       ...initHook,
       ...popupHook,
-      ...otherHook
+      ...otherHook,
+      ...themeHook
     }
   }
 })

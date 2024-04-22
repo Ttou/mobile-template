@@ -1,1 +1,0 @@
-import{C as e,_ as o}from"./index-9jp6yGNs.js";import{d as s,m as t,J as a}from"./chunk-libs-BuGqPGIv.js";const n=s({name:e.MY.name}),c={class:"page"};function r(_,d,p,m,i,f){return t(),a("div",c,"我的")}const x=o(n,[["render",r],["__scopeId","data-v-4e54088d"]]);export{x as default};

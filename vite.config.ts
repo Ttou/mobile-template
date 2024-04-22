@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
             viewportWidth: Number(env.VITE_APP_DESIGN_WIDTH),
             maxDisplayWidth: 600,
             landscapeWidth: 450,
-            border: true,
+            border: '#ebedf0',
             disableDesktop: true,
             disableLandscape: true,
             rootContainingBlockSelectorList: ['van-tabbar']

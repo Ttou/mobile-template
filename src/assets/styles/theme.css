@@ -1,0 +1,11 @@
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+
+  #app {
+    border-color: var(--van-border-color);
+  }
+}

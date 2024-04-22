@@ -1,10 +1,15 @@
 import type { ConfigProviderProps } from 'vant'
+import { computed } from 'vue'
 
-export function useVantConfig(): ConfigProviderProps {
-  return {
+import { useTheme } from './useTheme'
+
+export function useVantConfig() {
+  const { theme } = useTheme()
+
+  return computed<ConfigProviderProps>(() => ({
     tag: 'div',
-    theme: 'light',
+    theme: theme.value,
     themeVarsScope: 'global',
     iconPrefix: 'van-icon'
-  }
+  }))
 }
