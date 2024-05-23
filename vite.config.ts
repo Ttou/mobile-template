@@ -10,7 +10,7 @@ import postcssNested from 'postcss-nested'
 import imagemin from 'unplugin-imagemin/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import components from 'unplugin-vue-components/vite'
-import { defineConfig, loadEnv } from 'vite'
+import { CommonServerOptions, defineConfig, loadEnv } from 'vite'
 import { analyzer } from 'vite-bundle-analyzer'
 import { compression as compression2 } from 'vite-plugin-compression2'
 
@@ -18,6 +18,11 @@ import { browserslist } from './package.json'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.')
+  const commonServerOptions: CommonServerOptions = {
+    host: true,
+    open: true,
+    port: 8080
+  }
 
   return {
     base: mode === 'development' ? '/' : `/${env.VITE_APP_NAME}/`,
@@ -104,23 +109,19 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',
           assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
-          manualChunks(id) {
-            if (/[\\/]node_modules[\\/]/.test(id)) {
-              return 'chunk-libs'
-            }
+          manualChunks: {
+            vue: ['vue', 'vue-router', 'vue-types', '@vueuse/core'],
+            vant: ['vant'],
+            iconify: ['@iconify/vue']
           }
         }
       }
     },
     server: {
-      host: true,
-      open: true,
-      port: 8080
+      ...commonServerOptions
     },
     preview: {
-      host: true,
-      open: true,
-      port: 8080
+      ...commonServerOptions
     }
   }
 })

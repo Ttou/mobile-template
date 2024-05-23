@@ -1,0 +1,1 @@
+import{C as e,_ as o}from"./index-nc8bM8dE.js";import{k as t,K as a,a0 as s}from"./vue-B_PkpWPI.js";import"./iconify-CfF6lg9X.js";import"./vant-CcwuNB__.js";const n=t({name:e.CATEGORY.name}),c={class:"page"};function r(p,_,d,i,m,f){return a(),s("div",c,"分类")}const $=o(n,[["render",r],["__scopeId","data-v-c87d25ec"]]);export{$ as default};
