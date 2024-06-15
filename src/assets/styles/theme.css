@@ -6,6 +6,6 @@ html.dark {
   color-scheme: dark;
 
   #app {
-    border-color: var(--van-border-color);
+    box-shadow: 0 0 0 1px var(--van-border-color);
   }
 }
