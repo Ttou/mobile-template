@@ -1,9 +1,9 @@
-import { reactive, toRefs } from 'vue'
+import { reactive, shallowRef, toRefs } from 'vue'
 
 export function usePopup() {
   const state = reactive({
     show: false,
-    popupRef: {} as ComponentRef
+    popupRef: shallowRef<ComponentRef>()
   })
 
   function handleShow() {

@@ -1,1 +1,0 @@
-import{C as e,_ as o}from"./index-nc8bM8dE.js";import{k as t,K as a,a0 as s}from"./vue-B_PkpWPI.js";import"./iconify-CfF6lg9X.js";import"./vant-CcwuNB__.js";const n=t({name:e.CART.name}),c={class:"page"};function r(p,_,i,m,d,f){return a(),s("div",c,"购物车")}const $=o(n,[["render",r],["__scopeId","data-v-c74fb29e"]]);export{$ as default};

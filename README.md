@@ -6,7 +6,7 @@ Mobile Template 是一个开源的移动端模版。
 
 ## 特性
 
-- **技术栈**：使用 Vue3/Vite4/Vant3 等前端前沿技术开发
+- **技术栈**：使用 Vue3/Vite5/Vant4 等前端前沿技术开发
 - **TypeScript**：应用程序级 JavaScript 的语言
 - **特性**：支持使用 Vue 和 TSX 编写组件
 

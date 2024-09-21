@@ -3,6 +3,7 @@ import { Tabbar, TabbarItem } from 'vant'
 import {
   computed,
   defineComponent,
+  markRaw,
   reactive,
   toRefs,
   Transition,
@@ -20,7 +21,7 @@ export default defineComponent({
   setup() {
     const state = reactive({
       activeTab: 0,
-      tabs: [
+      tabs: markRaw<TabItem[]>([
         {
           label: '首页',
           name: CONST_ROUTES.INDEX.name,
@@ -51,7 +52,7 @@ export default defineComponent({
           path: CONST_ROUTES.MY.path,
           icon: 'ant-design:user-outlined'
         }
-      ] as TabItem[]
+      ])
     })
 
     const route = useRoute()

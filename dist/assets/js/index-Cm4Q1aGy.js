@@ -1,0 +1,1 @@
+import{C as e,_ as o}from"./index-B2RpUGCV.js";import{k as t,a1 as a,L as s}from"./vue-D0tMYHq3.js";import"./iconify-H7Mt5A1i.js";import"./vant-rEzGrjoR.js";const n=t({name:e.SHOP.name}),r={class:"page"};function c(p,_,i,m,d,f){return s(),a("div",r,"商铺")}const k=o(n,[["render",c],["__scopeId","data-v-b560a576"]]);export{k as default};
